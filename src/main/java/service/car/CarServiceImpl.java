@@ -55,6 +55,7 @@ public class CarServiceImpl implements CarService {
     public List<Car> getTopPosition() {
         return getAll().stream()
                 .sorted((c1, c2) -> Integer.compare(c1.getView(), c2.getView()) )
+                .limit(3)
                 .collect(Collectors.toList());
     }
 

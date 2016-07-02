@@ -1,0 +1,62 @@
+/*block of the news*/
+.news {
+    align-content: center;
+    margin: 20px;
+}
+.new_one{
+    background-color: lavender;
+    padding: 10px;
+}
+.link_news{
+    font-size: small;
+    right: auto;
+}
+/*top of the car*/
+.main_section{
+    padding-top: 5px;
+    background-color: yellowgreen;
+    /*margin-left: 20px;*/
+    /*margin-right: 20px;*/
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+.top_car{
+    padding: 10px;
+
+}
+.top_car img{
+    align-content: center;
+    width: 400px;
+    height: 230px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.top_car span{
+    color: red;
+    font-size: x-large;
+}
+
+/*page of car*/
+.list_of_car{
+    margin: 20px;
+}
+.list_of_car img{
+    width: 200px;
+    height: 127px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+/*table of cars*/
+.cars_price{
+    font-size: x-large;
+    color: red;
+}
+.cars_price a{
+    font-size: small;
+    color: red;
+}
+.cars_img{
+    width: 205px;
+}
+.cars_table p{
+    color: darkgray;
+}

@@ -34,7 +34,7 @@ public class ShopController {
     public String root(ModelMap model) {
         model.addAttribute("mess", "Welcom to SHOP!");
         model.addAttribute("topGoods", carService.getTopPosition());
-        return "hello";
+        return "index";
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -48,7 +48,7 @@ public class ShopController {
                     loggedUser = user;
                     model.addAttribute("mess", "You are enter as " + user.getName());
 
-                    return "hello";
+                    return "index";
                 }
                 model.addAttribute("mess", "not valid data ");
             }
@@ -56,25 +56,25 @@ public class ShopController {
             System.out.println("ugu");
         }
 
-        return "hello";
+        return "index";
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String saveRegister(@Valid User user, BindingResult result, SessionStatus status, ModelMap model) {
         if (result.hasErrors()) {
             model.addAttribute("register", true);
-            return "hello";
+            return "index";
         } else {
                 userService.saveOrUpdate(user);
             loggedUser = user;
-            return "hello";
+            return "index";
         }
     }
 
     @RequestMapping(value = "/exit", method = RequestMethod.GET)
     public String exit(ModelMap model) {
         loggedUser = null;
-        return "hello";
+        return "index";
     }
 
     @RequestMapping(value = "/cars", method = RequestMethod.GET)
