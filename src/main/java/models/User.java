@@ -8,14 +8,15 @@ import java.util.Date;
 public class User {
     private int id;
     private String name, email, password;
-    private Date createDate;
 
-    public User(int id, String name, String email, String password, Date createDate) {
+    public User() {
+    }
+
+    public User(int id, String name, String email, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
-        this.createDate = createDate;
     }
 
     public int getId() {
@@ -50,14 +51,6 @@ public class User {
         this.password = password;
     }
 
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -65,7 +58,6 @@ public class User {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", createDate=" + createDate +
                 '}';
     }
 }

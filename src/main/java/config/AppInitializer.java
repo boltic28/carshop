@@ -10,7 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 /**
- * Created by NotePad on 23.06.2016.
+ * Created by Siarhei Baltrukevich on 24.06.2016.
  */
 public class AppInitializer implements WebApplicationInitializer {
 
@@ -22,8 +22,8 @@ public class AppInitializer implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
 
         // Регистрируем в контексте конфигурационный класс, который мы создадим ниже
-//        ctx.register(MVCConfig.class);
-//        ctx.register(DataConfig.class);
+        ctx.register(ShopConfig.class);
+        ctx.register(WebAppConfig.class);
 
         servletContext.addListener(new ContextLoaderListener(ctx));
 
