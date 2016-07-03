@@ -1,4 +1,4 @@
-<footer class="main_section">
+<footer class="main_section foot">
     <hr>
     <p>Siarhei Baltrukevich</p>
 </footer>

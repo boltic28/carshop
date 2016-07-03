@@ -16,6 +16,7 @@ public interface CarService {
     void saveOrUpdate(Car car);
     void delete(int id);
     void addToBasket(int carId, int userId);
+    void addView(int carId, int view);
 
 
 }

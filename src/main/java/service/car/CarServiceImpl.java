@@ -54,7 +54,7 @@ public class CarServiceImpl implements CarService {
     @Override
     public List<Car> getTopPosition() {
         return getAll().stream()
-                .sorted((c1, c2) -> Integer.compare(c1.getView(), c2.getView()) )
+                .sorted((c1, c2) -> Integer.compare(c2.getView(), c1.getView()) )
                 .limit(3)
                 .collect(Collectors.toList());
     }
@@ -99,6 +99,12 @@ public class CarServiceImpl implements CarService {
     public void addToBasket(int carId, int userId) {
         String sql = "INSERT INTO users_has_cars (users_id, cars_id) VALUE (?, ?)";
         jdbcTemplate.update(sql, userId, carId);
+    }
+
+    @Override
+    public void addView(int carId, int view) {
+        String sql = "UPDATE cars SET  view=? WHERE id=?";
+        jdbcTemplate.update(sql, view, carId);
     }
 
     @Override

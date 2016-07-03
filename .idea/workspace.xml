@@ -2,18 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="376e2693-e44a-4c41-8703-0105fc40e92e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/elements/navHead.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/elements/news.jsp" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carshop.iml" afterPath="$PROJECT_DIR$/carshop.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/car/CarService.java" afterPath="$PROJECT_DIR$/src/main/java/service/car/CarService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/car/CarServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/service/car/CarServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/user/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/service/user/UserService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/user/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/service/user/UserServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/web/ShopController.java" afterPath="$PROJECT_DIR$/src/main/java/web/ShopController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/basket.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/basket.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/car.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/car.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/cars.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/cars.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/pages/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/elements/footer.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/elements/footer.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/elements/head.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/elements/head.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/hello.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/elements/navHead.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/elements/navHead.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/index.jsp" />
     </list>
     <ignored path="carshop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,21 +59,7 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="users" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - db_motor@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="cars" />
+        <option name="myItemId" value="users_has_cars" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
@@ -81,13 +69,48 @@
     <favorites_list name="carshop" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="ShopController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/web/ShopController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
+              <caret line="110" column="66" selection-start-line="110" selection-start-column="66" selection-end-line="110" selection-end-column="66" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/service/user/UserService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/service/user/UserServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="103" column="68" selection-start-line="103" selection-start-column="68" selection-end-line="103" selection-end-column="68" />
+              <folding>
+                <element signature="e#3284#3285#0" expanded="true" />
+                <element signature="e#3354#3355#0" expanded="true" />
+                <marker date="1467571035440" expanded="true" signature="724:780" placeholder="UPDATE users... " />
+                <marker date="1467571035440" expanded="true" signature="951:1035" placeholder="INSERT INTO users... " />
+                <marker date="1467571035440" expanded="true" signature="1232:1274" placeholder="DELETE FROM " />
+                <marker date="1467571035440" expanded="true" signature="1316:1343" placeholder="DELETE FROM " />
+                <marker date="1467571035440" expanded="true" signature="1419:1448" placeholder="SELECT * FRO... users" />
+                <marker date="1467571035440" expanded="true" signature="1895:1927" placeholder="SELECT * FRO... users" />
+                <marker date="1467571035440" expanded="true" signature="1895:1929" placeholder="SELECT * FRO... users" />
+                <marker date="1467571035440" expanded="true" signature="1895:1944" placeholder="SELECT * FRO... users" />
+                <marker date="1467571035440" expanded="true" signature="2371:2390" placeholder="SELECT * FRO... users" />
+                <marker date="1467571035440" expanded="true" signature="2724:2784" placeholder="INSERT INTO users_has_cars... " />
+                <marker date="1467571035440" expanded="true" signature="2934:2992" placeholder="INSERT INTO users_has_cars... " />
+                <marker date="1467571035440" expanded="true" signature="3134:3178" placeholder="DELETE FROM " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -95,90 +118,18 @@
       <file leaf-file-name="cars.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cars.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.653847">
-              <caret line="48" column="77" selection-start-line="48" selection-start-column="77" selection-end-line="48" selection-end-column="77" />
+            <state vertical-scroll-proportion="-8.769231">
+              <caret line="17" column="10" selection-start-line="14" selection-start-column="0" selection-end-line="17" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.653847">
-              <caret line="27" column="113" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="113" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="db_motor.cars" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/256d28c5/9eaf4ebd-ebbf-4606-8e5c-f019cf53e83d/db_motor.cars">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="news.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/elements/news.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.730769">
-              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="footer.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/elements/footer.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614">
-              <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="navHead.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="navHead.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/elements/navHead.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3076923">
-              <caret line="2" column="50" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64084506">
-              <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="105a.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/img/105a.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="head.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/elements/head.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075">
-              <caret line="11" column="63" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.46279493">
+              <caret line="37" column="30" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -227,23 +178,24 @@
         <option value="$PROJECT_DIR$/src/main/resources/message/app.properties" />
         <option value="$PROJECT_DIR$/src/test/java/service/CarServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/user/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/service/UserServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/hello.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/basket.jsp" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/good.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/car.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/service/car/CarService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/web/ShopController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/car/CarServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/elements/head.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/elements/news.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/elements/footer.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/elements/navHead.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/cars.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/css/style.css" />
+        <option value="$PROJECT_DIR$/src/main/java/service/car/CarService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/service/car/CarServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/car.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/cars.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/elements/navHead.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/service/user/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/service/user/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/web/ShopController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/basket.jsp" />
       </list>
     </option>
   </component>
@@ -273,10 +225,10 @@
     <option name="skipTests" value="true" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1696" />
-    <option name="height" value="1026" />
+    <option name="x" value="1" />
+    <option name="y" value="2" />
+    <option name="width" value="1678" />
+    <option name="height" value="1008" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -304,6 +256,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -418,96 +371,6 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carshop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carshop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="elements" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carshop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carshop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carshop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carshop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -528,68 +391,11 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carshop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carshop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carshop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carshop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="car" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1316,7 +1122,8 @@
       <workItem from="1466879227254" duration="20829000" />
       <workItem from="1467053065210" duration="5912000" />
       <workItem from="1467307850945" duration="5106000" />
-      <workItem from="1467392131913" duration="20412000" />
+      <workItem from="1467392131913" duration="27154000" />
+      <workItem from="1467566406099" duration="4942000" />
     </task>
     <task id="LOCAL-00001" summary="start spring">
       <created>1466687424754</created>
@@ -1336,7 +1143,13 @@
       <option name="project" value="LOCAL" />
       <updated>1467464913309</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="start front">
+      <created>1467479063476</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1467479063476</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1372,11 +1185,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79113000" />
+    <option name="totallyTimeSpent" value="90797000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="0" />
-    <editor active="true" />
+    <frame x="1" y="2" width="1678" height="1008" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1389,14 +1202,14 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293124" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294621" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277405" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30425057" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30936074" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1693154" sideWeight="0.4914842" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17119901" sideWeight="0.4914842" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17726162" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17923363" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1424,7 +1237,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="start spring" />
     <MESSAGE value="back - end is ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="back - end is ready" />
+    <MESSAGE value="start front" />
+    <option name="LAST_COMMIT_MESSAGE" value="start front" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1437,11 +1251,81 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/web/ShopController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cars.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="48" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/elements/news.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="14" selection-start-line="4" selection-start-column="8" selection-end-line="12" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/car.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Car.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="31" />
+          <folding>
+            <element signature="e#3500#3501#0" expanded="true" />
+            <element signature="e#3531#3532#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/elements/navHead.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="50" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/elements/footer.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="32" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/models/Car.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-          <folding />
+          <folding>
+            <element signature="e#3500#3501#0" expanded="true" />
+            <element signature="e#3531#3532#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1450,17 +1334,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1467468502976" expanded="true" signature="720:738" placeholder="SELECT * FRO... cars" />
-            <marker date="1467468502976" expanded="true" signature="1071:1105" placeholder="SELECT * FRO... users_has_cars" />
-            <marker date="1467468502976" expanded="true" signature="1071:1115" placeholder="SELECT * FRO... users_has_cars" />
-            <marker date="1467468502976" expanded="true" signature="1845:1873" placeholder="SELECT * FRO... cars" />
-            <marker date="1467468502976" expanded="true" signature="2361:2491" placeholder="UPDATE cars " />
-            <marker date="1467468502976" expanded="true" signature="2361:2579" placeholder="UPDATE cars " />
-            <marker date="1467468502976" expanded="true" signature="3001:3077" placeholder="INSERT INTO cars... " />
-            <marker date="1467468502976" expanded="true" signature="3001:3258" placeholder="INSERT INTO cars... " />
-            <marker date="1467468502976" expanded="true" signature="3729:3788" placeholder="INSERT INTO users_has_cars... " />
-            <marker date="1467468502976" expanded="true" signature="3926:3967" placeholder="DELETE FROM " />
-            <marker date="1467468502976" expanded="true" signature="4008:4034" placeholder="DELETE FROM " />
+            <marker date="1467569010942" expanded="true" signature="720:738" placeholder="SELECT * FRO... cars" />
+            <marker date="1467569010942" expanded="true" signature="1071:1105" placeholder="SELECT * FRO... users_has_cars" />
+            <marker date="1467569010942" expanded="true" signature="1071:1115" placeholder="SELECT * FRO... users_has_cars" />
+            <marker date="1467569010942" expanded="true" signature="1845:1873" placeholder="SELECT * FRO... cars" />
+            <marker date="1467569010942" expanded="true" signature="2361:2491" placeholder="UPDATE cars " />
+            <marker date="1467569010942" expanded="true" signature="2361:2579" placeholder="UPDATE cars " />
+            <marker date="1467569010942" expanded="true" signature="3001:3077" placeholder="INSERT INTO cars... " />
+            <marker date="1467569010942" expanded="true" signature="3001:3258" placeholder="INSERT INTO cars... " />
+            <marker date="1467569010942" expanded="true" signature="3729:3788" placeholder="INSERT INTO users_has_cars... " />
+            <marker date="1467569010942" expanded="true" signature="3930:3964" placeholder="UPDATE cars " />
+            <marker date="1467569010942" expanded="true" signature="4100:4141" placeholder="DELETE FROM " />
+            <marker date="1467569010942" expanded="true" signature="4182:4208" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -1469,9 +1354,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="38" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1480,16 +1363,20 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="39" column="41" selection-start-line="38" selection-start-column="8" selection-end-line="39" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <marker date="1467312460239" expanded="true" signature="724:780" placeholder="UPDATE users... " />
-            <marker date="1467312460239" expanded="true" signature="951:1035" placeholder="INSERT INTO users... " />
-            <marker date="1467312460239" expanded="true" signature="1232:1274" placeholder="DELETE FROM " />
-            <marker date="1467312460239" expanded="true" signature="1316:1343" placeholder="DELETE FROM " />
-            <marker date="1467312460239" expanded="true" signature="1419:1448" placeholder="SELECT * FRO... users" />
-            <marker date="1467312460239" expanded="true" signature="1895:1927" placeholder="SELECT * FRO... users" />
-            <marker date="1467312460239" expanded="true" signature="1895:1929" placeholder="SELECT * FRO... users" />
-            <marker date="1467312460239" expanded="true" signature="1895:1944" placeholder="SELECT * FRO... users" />
-            <marker date="1467312460239" expanded="true" signature="2371:2390" placeholder="SELECT * FRO... users" />
+            <element signature="e#3284#3285#0" expanded="true" />
+            <element signature="e#3354#3355#0" expanded="true" />
+            <marker date="1467571035440" expanded="true" signature="724:780" placeholder="UPDATE users... " />
+            <marker date="1467571035440" expanded="true" signature="951:1035" placeholder="INSERT INTO users... " />
+            <marker date="1467571035440" expanded="true" signature="1232:1274" placeholder="DELETE FROM " />
+            <marker date="1467571035440" expanded="true" signature="1316:1343" placeholder="DELETE FROM " />
+            <marker date="1467571035440" expanded="true" signature="1419:1448" placeholder="SELECT * FRO... users" />
+            <marker date="1467571035440" expanded="true" signature="1895:1927" placeholder="SELECT * FRO... users" />
+            <marker date="1467571035440" expanded="true" signature="1895:1929" placeholder="SELECT * FRO... users" />
+            <marker date="1467571035440" expanded="true" signature="1895:1944" placeholder="SELECT * FRO... users" />
+            <marker date="1467571035440" expanded="true" signature="2371:2390" placeholder="SELECT * FRO... users" />
+            <marker date="1467571035440" expanded="true" signature="2724:2784" placeholder="INSERT INTO users_has_cars... " />
+            <marker date="1467571035440" expanded="true" signature="2934:2992" placeholder="INSERT INTO users_has_cars... " />
+            <marker date="1467571035440" expanded="true" signature="3134:3178" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -1499,17 +1386,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding>
-            <marker date="1467468502976" expanded="true" signature="720:738" placeholder="SELECT * FRO... cars" />
-            <marker date="1467468502976" expanded="true" signature="1071:1105" placeholder="SELECT * FRO... users_has_cars" />
-            <marker date="1467468502976" expanded="true" signature="1071:1115" placeholder="SELECT * FRO... users_has_cars" />
-            <marker date="1467468502976" expanded="true" signature="1845:1873" placeholder="SELECT * FRO... cars" />
-            <marker date="1467468502976" expanded="true" signature="2361:2491" placeholder="UPDATE cars " />
-            <marker date="1467468502976" expanded="true" signature="2361:2579" placeholder="UPDATE cars " />
-            <marker date="1467468502976" expanded="true" signature="3001:3077" placeholder="INSERT INTO cars... " />
-            <marker date="1467468502976" expanded="true" signature="3001:3258" placeholder="INSERT INTO cars... " />
-            <marker date="1467468502976" expanded="true" signature="3729:3788" placeholder="INSERT INTO users_has_cars... " />
-            <marker date="1467468502976" expanded="true" signature="3926:3967" placeholder="DELETE FROM " />
-            <marker date="1467468502976" expanded="true" signature="4008:4034" placeholder="DELETE FROM " />
+            <marker date="1467569010942" expanded="true" signature="720:738" placeholder="SELECT * FRO... cars" />
+            <marker date="1467569010942" expanded="true" signature="1071:1105" placeholder="SELECT * FRO... users_has_cars" />
+            <marker date="1467569010942" expanded="true" signature="1071:1115" placeholder="SELECT * FRO... users_has_cars" />
+            <marker date="1467569010942" expanded="true" signature="1845:1873" placeholder="SELECT * FRO... cars" />
+            <marker date="1467569010942" expanded="true" signature="2361:2491" placeholder="UPDATE cars " />
+            <marker date="1467569010942" expanded="true" signature="2361:2579" placeholder="UPDATE cars " />
+            <marker date="1467569010942" expanded="true" signature="3001:3077" placeholder="INSERT INTO cars... " />
+            <marker date="1467569010942" expanded="true" signature="3001:3258" placeholder="INSERT INTO cars... " />
+            <marker date="1467569010942" expanded="true" signature="3729:3788" placeholder="INSERT INTO users_has_cars... " />
+            <marker date="1467569010942" expanded="true" signature="3930:3964" placeholder="UPDATE cars " />
+            <marker date="1467569010942" expanded="true" signature="4100:4141" placeholder="DELETE FROM " />
+            <marker date="1467569010942" expanded="true" signature="4182:4208" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -1554,9 +1442,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1708,29 +1594,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/user/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/config/ShopConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="44" column="63" selection-start-line="44" selection-start-column="63" selection-end-line="44" selection-end-column="63" />
-          <folding>
-            <element signature="e#1665#1666#0" expanded="false" />
-            <element signature="e#1718#1719#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1742,21 +1609,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/message/app.properties">
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.1724138">
           <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Car.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="173" column="22" selection-start-line="173" selection-start-column="22" selection-end-line="173" selection-end-column="22" />
-          <folding />
-        </state>
+      <provider editor-type-id="ResourceBundle">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/service/CarServiceImplTest.java">
@@ -1783,7 +1642,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="59" column="50" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1799,14 +1657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/basket.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.884615">
-          <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.384615">
@@ -1815,88 +1665,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/user/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <marker date="1467312460239" expanded="true" signature="724:780" placeholder="UPDATE users... " />
-            <marker date="1467312460239" expanded="true" signature="951:1035" placeholder="INSERT INTO users... " />
-            <marker date="1467312460239" expanded="true" signature="1232:1274" placeholder="DELETE FROM " />
-            <marker date="1467312460239" expanded="true" signature="1316:1343" placeholder="DELETE FROM " />
-            <marker date="1467312460239" expanded="true" signature="1419:1448" placeholder="SELECT * FRO... users" />
-            <marker date="1467312460239" expanded="true" signature="1895:1927" placeholder="SELECT * FRO... users" />
-            <marker date="1467312460239" expanded="true" signature="1895:1929" placeholder="SELECT * FRO... users" />
-            <marker date="1467312460239" expanded="true" signature="1895:1944" placeholder="SELECT * FRO... users" />
-            <marker date="1467312460239" expanded="true" signature="2371:2390" placeholder="SELECT * FRO... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/car.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.153846">
-          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
-          <folding>
-            <marker date="1467403202947" expanded="true" signature="277:718" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/car/CarService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/256d28c5/9eaf4ebd-ebbf-4606-8e5c-f019cf53e83d/db_motor.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/car/CarServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="25" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
-          <folding>
-            <marker date="1467468502976" expanded="true" signature="720:738" placeholder="SELECT * FRO... cars" />
-            <marker date="1467468502976" expanded="true" signature="1071:1105" placeholder="SELECT * FRO... users_has_cars" />
-            <marker date="1467468502976" expanded="true" signature="1071:1115" placeholder="SELECT * FRO... users_has_cars" />
-            <marker date="1467468502976" expanded="true" signature="1845:1873" placeholder="SELECT * FRO... cars" />
-            <marker date="1467468502976" expanded="true" signature="2361:2491" placeholder="UPDATE cars " />
-            <marker date="1467468502976" expanded="true" signature="2361:2579" placeholder="UPDATE cars " />
-            <marker date="1467468502976" expanded="true" signature="3001:3077" placeholder="INSERT INTO cars... " />
-            <marker date="1467468502976" expanded="true" signature="3001:3258" placeholder="INSERT INTO cars... " />
-            <marker date="1467468502976" expanded="true" signature="3729:3788" placeholder="INSERT INTO users_has_cars... " />
-            <marker date="1467468502976" expanded="true" signature="3926:3967" placeholder="DELETE FROM " />
-            <marker date="1467468502976" expanded="true" signature="4008:4034" placeholder="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/256d28c5/9eaf4ebd-ebbf-4606-8e5c-f019cf53e83d/db_motor.cars">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1913,58 +1690,157 @@
         <state />
       </provider>
     </entry>
+    <entry file="dbDummy://dbtable:/256d28c5/9eaf4ebd-ebbf-4606-8e5c-f019cf53e83d/db_motor.cars">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/elements/news.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769">
-          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="14" selection-start-line="4" selection-start-column="8" selection-end-line="12" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Car.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="31" />
+          <folding>
+            <element signature="e#3500#3501#0" expanded="true" />
+            <element signature="e#3531#3532#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/elements/footer.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/elements/navHead.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3076923">
-          <caret line="2" column="50" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.653847">
-          <caret line="27" column="113" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="113" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/web/ShopController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cars.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.653847">
-          <caret line="48" column="77" selection-start-line="48" selection-start-column="77" selection-end-line="48" selection-end-column="77" />
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="32" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64084506">
-          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="93" column="21" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.692307">
+          <caret line="24" column="138" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="138" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/car/CarService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/car/CarServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="106" column="44" selection-start-line="106" selection-start-column="44" selection-end-line="106" selection-end-column="44" />
+          <folding>
+            <marker date="1467569010942" expanded="true" signature="720:738" placeholder="SELECT * FRO... cars" />
+            <marker date="1467569010942" expanded="true" signature="1071:1105" placeholder="SELECT * FRO... users_has_cars" />
+            <marker date="1467569010942" expanded="true" signature="1071:1115" placeholder="SELECT * FRO... users_has_cars" />
+            <marker date="1467569010942" expanded="true" signature="1845:1873" placeholder="SELECT * FRO... cars" />
+            <marker date="1467569010942" expanded="true" signature="2361:2491" placeholder="UPDATE cars " />
+            <marker date="1467569010942" expanded="true" signature="2361:2579" placeholder="UPDATE cars " />
+            <marker date="1467569010942" expanded="true" signature="3001:3077" placeholder="INSERT INTO cars... " />
+            <marker date="1467569010942" expanded="true" signature="3001:3258" placeholder="INSERT INTO cars... " />
+            <marker date="1467569010942" expanded="true" signature="3729:3788" placeholder="INSERT INTO users_has_cars... " />
+            <marker date="1467569010942" expanded="true" signature="3930:3964" placeholder="UPDATE cars " />
+            <marker date="1467569010942" expanded="true" signature="4100:4141" placeholder="DELETE FROM " />
+            <marker date="1467569010942" expanded="true" signature="4182:4208" placeholder="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/car.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-47.73077">
+          <caret line="88" column="27" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cars.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.769231">
+          <caret line="17" column="10" selection-start-line="14" selection-start-column="0" selection-end-line="17" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/user/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/user/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="68" selection-start-line="103" selection-start-column="68" selection-end-line="103" selection-end-column="68" />
+          <folding>
+            <element signature="e#3284#3285#0" expanded="true" />
+            <element signature="e#3354#3355#0" expanded="true" />
+            <marker date="1467571035440" expanded="true" signature="724:780" placeholder="UPDATE users... " />
+            <marker date="1467571035440" expanded="true" signature="951:1035" placeholder="INSERT INTO users... " />
+            <marker date="1467571035440" expanded="true" signature="1232:1274" placeholder="DELETE FROM " />
+            <marker date="1467571035440" expanded="true" signature="1316:1343" placeholder="DELETE FROM " />
+            <marker date="1467571035440" expanded="true" signature="1419:1448" placeholder="SELECT * FRO... users" />
+            <marker date="1467571035440" expanded="true" signature="1895:1927" placeholder="SELECT * FRO... users" />
+            <marker date="1467571035440" expanded="true" signature="1895:1929" placeholder="SELECT * FRO... users" />
+            <marker date="1467571035440" expanded="true" signature="1895:1944" placeholder="SELECT * FRO... users" />
+            <marker date="1467571035440" expanded="true" signature="2371:2390" placeholder="SELECT * FRO... users" />
+            <marker date="1467571035440" expanded="true" signature="2724:2784" placeholder="INSERT INTO users_has_cars... " />
+            <marker date="1467571035440" expanded="true" signature="2934:2992" placeholder="INSERT INTO users_has_cars... " />
+            <marker date="1467571035440" expanded="true" signature="3134:3178" placeholder="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/web/ShopController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="110" column="66" selection-start-line="110" selection-start-column="66" selection-end-line="110" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/basket.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30852994">
+          <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/elements/navHead.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46279493">
+          <caret line="37" column="30" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="30" />
           <folding />
         </state>
       </provider>

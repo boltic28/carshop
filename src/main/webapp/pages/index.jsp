@@ -15,15 +15,14 @@
 
 
     <section class="main_section">
-        <h2>Популярные товары.</h2>
+        <h2>Популярные товары.Авто</h2>
         <hr>
         <div class="row">
             <c:forEach items="${topGoods}" var="car">
                 <jsp:useBean id="car" scope="page" type="models.Car"/>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 top_car">
                     <p>
-                        <span>$${car.price}</span>
-
+                        <tspan>$${car.price}</tspan> ( <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> ${car.view} )
                     </p>
                     <a href="cars/${car.id}"><img src="${pageContext.request.contextPath}/pages/img/${car.img1}"></a>
                     <p>

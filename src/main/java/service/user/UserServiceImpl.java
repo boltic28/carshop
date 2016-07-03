@@ -87,6 +87,29 @@ public class UserServiceImpl implements UserService {
         });
     }
 
+    @Override
+    public void addToBasket(int userId, int carId) {
+        String sql = "INSERT INTO users_has_cars (users_id, cars_id) VALUES (?, ?)";
+        jdbcTemplate.update(sql, userId, carId);
+    }
+
+    @Override
+    public void delFromBasket(int userId, int carId) {
+        String sql = "DELETE FROM users_has_cars WHERE users_id=? AND cars_id=?)";
+        jdbcTemplate.update(sql, userId, carId);
+    }
+
+    @Override
+    public void delAllFromBasket(int userId) {
+        String sql = "DELETE FROM users_has_cars WHERE users_id=?)";
+        jdbcTemplate.update(sql, userId);
+    }
+
+    @Override
+    public int getTotalCost(int userId) {
+        return 5200;// need getting summ of all goods in basket
+    }
+
     private User getUserFromRs(ResultSet rs) throws SQLException,
             DataAccessException{
         User user = new User();
@@ -98,4 +121,6 @@ public class UserServiceImpl implements UserService {
 
         return user;
     }
+
+
 }

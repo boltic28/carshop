@@ -10,12 +10,13 @@ import java.util.List;
 public interface UserService {
 
     void saveOrUpdate(User user);
-
     void delete(int userId);
-
     User get(int userId);
-
     User getByEmail(String name);
-
     List<User> getAll();
+
+    void addToBasket(int userId, int carId);
+    void delFromBasket(int userId, int carId);
+    void delAllFromBasket(int userId);
+    int getTotalCost(int userId);
 }

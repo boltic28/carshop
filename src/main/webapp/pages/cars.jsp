@@ -9,10 +9,8 @@
 
 <body>
 
-<jsp:include page="elements/head.jsp"/>
 <jsp:include page="elements/navHead.jsp"/>
 <jsp:include page="elements/news.jsp"/>
-
 
 <section class="main_section">
     <h2>Авто в наличии</h2>
@@ -51,7 +49,14 @@
 
                     </td>
 
-                    <td><a href="">В корзину</a></td>
+                    <td>
+                        <c:if test="${isLogin == 'yes'}">
+                            <a href="inbasket/${car.id}/add">В корзину</a>
+                        </c:if>
+                        <c:if test="${isLogin == 'no'}">
+                            <em><a href="/registration">войдите в аккаунт</a></em>
+                        </c:if>
+                    </td>
                 </tr>
             </c:forEach>
 

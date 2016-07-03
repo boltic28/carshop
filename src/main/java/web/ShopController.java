@@ -1,5 +1,6 @@
 package web;
 
+import models.Car;
 import models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import service.car.CarService;
 import service.user.UserService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * Created by Siarhei Baltrukevich on 23.06.2016.
@@ -67,8 +69,7 @@ public class ShopController {
         } else {
                 userService.saveOrUpdate(user);
             loggedUser = user;
-            return "index";
-        }
+            return "index";        }
     }
 
     @RequestMapping(value = "/exit", method = RequestMethod.GET)
@@ -87,9 +88,12 @@ public class ShopController {
 
     @RequestMapping(value = "/cars/{carId}", method = RequestMethod.GET)
     public String cars(ModelMap model, @PathVariable("carId") int id) {
+        Car currentCar = carService.getOne(id);
+        carService.addView( id, currentCar.getView() + 1);
         model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
         model.addAttribute("mess", "Welcom to Auto!!!");
-        model.addAttribute("curcar", carService.getOne(id));
+        model.addAttribute("curcar", currentCar );
+
         return "car";
     }
 
@@ -104,8 +108,28 @@ public class ShopController {
 
     @RequestMapping(value = "/basket", method = RequestMethod.GET)
     public String home(ModelMap model) {
+        List total = carService.getAllForUser(loggedUser.getId());
+        model.addAttribute("goodsList", total);
+        model.addAttribute("total", userService.getTotalCost(loggedUser.getId()));
+        model.addAttribute("totGoods", total.size());
+        return "basket";
+    }
 
-        model.addAttribute("goodsList", carService.getAllForUser(loggedUser.getId()));
+    @RequestMapping(value = "/inbasket/{carId}/add", method = RequestMethod.GET)
+    public String inBasket(ModelMap model, @PathVariable("carId") int id) {
+        userService.addToBasket(loggedUser.getId(), id);
+        return "cars/" + id;
+    }
+
+    @RequestMapping(value = "inbasket/${car.id}/del", method = RequestMethod.GET)
+    public String delFromBasket(ModelMap model, @PathVariable("carId") int id) {
+        userService.delFromBasket(loggedUser.getId(), id);
+        return "basket";
+    }
+
+    @RequestMapping(value = "/basket/delall", method = RequestMethod.GET)
+    public String delAllFromBasket(ModelMap model) {
+        userService.delAllFromBasket(loggedUser.getId());
         return "basket";
     }
 }

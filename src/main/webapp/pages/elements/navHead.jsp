@@ -39,10 +39,10 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Покупки<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Корзина</a></li>
+                        <li><a href="/basket">Корзина</a></li>
                         <li><a href="#">Популярные товары</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Очистить корзину</a></li>
+                        <li><a href="/basket/delall">Очистить корзину</a></li>
                     </ul>
                 </li>
             </ul>
