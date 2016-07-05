@@ -51,7 +51,7 @@
 
                     <td>
                         <c:if test="${isLogin == 'yes'}">
-                            <a href="inbasket/${car.id}/add">В корзину</a>
+                            <a href="inbasket/${car.id}/addFromCars">В корзину</a>
                         </c:if>
                         <c:if test="${isLogin == 'no'}">
                             <em><a href="/registration">войдите в аккаунт</a></em>

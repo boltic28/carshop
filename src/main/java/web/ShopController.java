@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
 import service.car.CarService;
 import service.user.UserService;
 
@@ -36,9 +37,14 @@ public class ShopController {
     public String root(ModelMap model) {
         model.addAttribute("mess", "Welcom to SHOP!");
         model.addAttribute("topGoods", carService.getTopPosition());
+        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
+        if(loggedUser != null)
+        {
+            model.addAttribute("curuser", loggedUser);
+        }
         return "index";
     }
-
+//logging
     @RequestMapping(method = RequestMethod.POST)
     public String login(ModelMap model,
                               @RequestParam(value = "login", required = false) String login,
@@ -48,7 +54,11 @@ public class ShopController {
                 User user = userService.getByEmail(login);
                 if (user != null && pass.equals(user.getPassword())) {
                     loggedUser = user;
-                    model.addAttribute("mess", "You are enter as " + user.getName());
+
+                    model.addAttribute("topGoods", carService.getTopPosition());
+
+                    model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
+                    model.addAttribute("curuser", loggedUser);
 
                     return "index";
                 }
@@ -57,7 +67,8 @@ public class ShopController {
         }catch (Exception e){
             System.out.println("ugu");
         }
-
+        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
+        model.addAttribute("topGoods", carService.getTopPosition());
         return "index";
     }
 
@@ -67,20 +78,30 @@ public class ShopController {
             model.addAttribute("register", true);
             return "index";
         } else {
-                userService.saveOrUpdate(user);
+            userService.saveOrUpdate(user);
             loggedUser = user;
+
+            model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
+            model.addAttribute("curuser", loggedUser);
+            model.addAttribute("topGoods", carService.getTopPosition());
+            model.addAttribute("curuser", loggedUser);
+
             return "index";        }
     }
 
     @RequestMapping(value = "/exit", method = RequestMethod.GET)
     public String exit(ModelMap model) {
         loggedUser = null;
+        model.addAttribute("isLogin", "no");
+        model.addAttribute("topGoods", carService.getTopPosition());
         return "index";
     }
 
+//from cars work
     @RequestMapping(value = "/cars", method = RequestMethod.GET)
     public String cars(ModelMap model) {
         model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
+        model.addAttribute("curuser", loggedUser);
         model.addAttribute("mess", "Welcom to Auto!!!");
         model.addAttribute("carList", carService.getAll());
         return "cars";
@@ -91,23 +112,17 @@ public class ShopController {
         Car currentCar = carService.getOne(id);
         carService.addView( id, currentCar.getView() + 1);
         model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
-        model.addAttribute("mess", "Welcom to Auto!!!");
+        model.addAttribute("curuser", loggedUser);
         model.addAttribute("curcar", currentCar );
 
         return "car";
     }
 
-    @RequestMapping(value = "/cars/{carId}/addToBasket", method = RequestMethod.GET)
-    public String addToBasket(ModelMap model, @PathVariable("carId") int id) {
-        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
-        carService.addToBasket(id, loggedUser.getId());
-        model.addAttribute("mess", "Car was added to your basket");
-        model.addAttribute("curcar", carService.getOne(id));
-        return "car";
-    }
-
+//from basket work
     @RequestMapping(value = "/basket", method = RequestMethod.GET)
     public String home(ModelMap model) {
+        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
+        model.addAttribute("curuser", loggedUser);
         List total = carService.getAllForUser(loggedUser.getId());
         model.addAttribute("goodsList", total);
         model.addAttribute("total", userService.getTotalCost(loggedUser.getId()));
@@ -116,20 +131,44 @@ public class ShopController {
     }
 
     @RequestMapping(value = "/inbasket/{carId}/add", method = RequestMethod.GET)
-    public String inBasket(ModelMap model, @PathVariable("carId") int id) {
-        userService.addToBasket(loggedUser.getId(), id);
-        return "cars/" + id;
+    public String addToBasket(ModelMap model, @PathVariable("carId") int id) {
+        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
+        model.addAttribute("curuser", loggedUser);
+        carService.addToBasket(id, loggedUser.getId());
+        model.addAttribute("curcar", carService.getOne(id));
+        return "car";
     }
 
-    @RequestMapping(value = "inbasket/${car.id}/del", method = RequestMethod.GET)
+    @RequestMapping(value = "/inbasket/{carId}/addFromCars", method = RequestMethod.GET)
+    public String addToBasketFromCars(ModelMap model, @PathVariable("carId") int id) {
+        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
+        model.addAttribute("curuser", loggedUser);
+        model.addAttribute("carList", carService.getAll());
+        carService.addToBasket(id, loggedUser.getId());
+        return "cars";
+    }
+
+    @RequestMapping(value = "/inbasket/{carId}/del", method = RequestMethod.GET)
     public String delFromBasket(ModelMap model, @PathVariable("carId") int id) {
         userService.delFromBasket(loggedUser.getId(), id);
+        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
+        model.addAttribute("curuser", loggedUser);
+        List total = carService.getAllForUser(loggedUser.getId());
+        model.addAttribute("goodsList", total);
+        model.addAttribute("total", userService.getTotalCost(loggedUser.getId()));
+        model.addAttribute("totGoods", total.size());
         return "basket";
     }
 
     @RequestMapping(value = "/basket/delall", method = RequestMethod.GET)
     public String delAllFromBasket(ModelMap model) {
         userService.delAllFromBasket(loggedUser.getId());
+        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
+        model.addAttribute("curuser", loggedUser);
+        List total = carService.getAllForUser(loggedUser.getId());
+        model.addAttribute("goodsList", total);
+        model.addAttribute("total", userService.getTotalCost(loggedUser.getId()));
+        model.addAttribute("totGoods", total.size());
         return "basket";
     }
 }

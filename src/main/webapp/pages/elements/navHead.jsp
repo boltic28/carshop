@@ -1,4 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean class="models.User"  id="user" scope="page" type="models.User"/>
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -16,7 +18,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Главная <span class="sr-only">(current)</span></a></li>
+                <li ><a href="#">Главная <span class="sr-only">(current)</span></a></li> <!--class="active"-->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Витрины <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -35,16 +37,24 @@
                 <button type="submit" class="btn btn-default">Поискать</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Войти</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Покупки<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/basket">Корзина</a></li>
-                        <li><a href="#">Популярные товары</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="/basket/delall">Очистить корзину</a></li>
-                    </ul>
-                </li>
+                <c:set var="user" scope="page" value="${curuser}" />
+                    <c:if test="${isLogin == 'yes'}">
+                        <li class="entered_user">Вы вошли как ${user.name}</li>
+                        <li><a href="/exit">Выйти</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Покупки<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/basket">Корзина</a></li>
+                                <li><a href="#">Популярные товары</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/basket/delall">Очистить корзину</a></li>
+                            </ul>
+                        </li>
+                    </c:if>
+                    <c:if test="${isLogin == 'no'}">
+                        <li><a href="#" onclick=login()>Войти</a></li>
+                        <li><a href="#" onclick=add_user()>Зарегистрироваться</a></li>
+                    </c:if>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

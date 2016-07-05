@@ -95,13 +95,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void delFromBasket(int userId, int carId) {
-        String sql = "DELETE FROM users_has_cars WHERE users_id=? AND cars_id=?)";
+        String sql = "DELETE FROM users_has_cars WHERE users_id=? AND cars_id=?";
         jdbcTemplate.update(sql, userId, carId);
     }
 
     @Override
     public void delAllFromBasket(int userId) {
-        String sql = "DELETE FROM users_has_cars WHERE users_id=?)";
+        String sql = "DELETE FROM users_has_cars WHERE users_id=?";
         jdbcTemplate.update(sql, userId);
     }
 

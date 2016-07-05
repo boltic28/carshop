@@ -1,6 +1,5 @@
 package models;
 
-import java.util.Date;
 
 /**
  * Created by NotePad on 23.06.2016.

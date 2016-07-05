@@ -9,13 +9,12 @@
 
 <body>
 
-    <jsp:include page="elements/head.jsp"/>
     <jsp:include page="elements/navHead.jsp"/>
     <jsp:include page="elements/news.jsp"/>
 
 
     <section class="main_section">
-        <h2>Популярные товары.Авто</h2>
+        <h2>Авто.Популярные товары.</h2>
         <hr>
         <div class="row">
             <c:forEach items="${topGoods}" var="car">
@@ -37,6 +36,10 @@
 
 </body>
 
+
 <jsp:include page="elements/footer.jsp"/>
+
+<jsp:include page="elements/user_add.jsp"/>
+<jsp:include page="elements/login.jsp"/>
 
 </html>

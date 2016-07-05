@@ -12,6 +12,12 @@
     font-size: small;
     right: auto;
 }
+/*navbar*/
+.entered_user{
+    position: absolute;
+    top: 15px;
+    vertical-align: middle;
+}
 /*top of the car*/
 .main_section{
     padding-top: 5px;
@@ -70,6 +76,9 @@
 .cars_img{
     width: 205px;
 }
+.cars_img img{
+    width: 200px;
+}
 .cars_table p{
     color: darkgray;
 }
@@ -116,4 +125,11 @@
 .common_car span{
     font-size: xx-large;
     color: red;
+}
+
+/*basket*/
+.basketTable img{
+    width: 200px;
+    height: 127px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }

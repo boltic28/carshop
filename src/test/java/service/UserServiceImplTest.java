@@ -42,12 +42,20 @@ public class UserServiceImplTest {
         template.update(sql, 102, "testUserForDel", "testmail102@mail.ru", "delete");
         template.update(sql, 103, "testUserForGet", "testmail103@mail.ru", "delete");
         template.update(sql, 104, "testUserForUpd", "testmail104@mail.ru", "delete");
+
+        String sql1 = "INSERT INTO cars (id, brand, model, transmition, color, engine, year, price, odo, view, frame, " +
+                "agregate, skin, aircondition, castdisk, img1)"
+                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        template.update(sql1, 102, "audi", "a4", "Auto", "gray", "diesel", 2014, 5400, 45000, 99999, "sedan", "used", 1, 1, 1, "for delete");
+
+        template.update("INSERT INTO users_has_cars (users_id, cars_id) VALUES (102, 102)");
     }
 
     @After
     public void setOut() throws Exception{
-        String sql = "DELETE FROM users WHERE password=?";
-        template.update(sql, "delete");
+        template.update("DELETE FROM users_has_cars WHERE cars_id=102");
+        template.update("DELETE FROM users WHERE password=?", "delete");
+        template.update("DELETE FROM cars WHERE view=99999");
     }
 
     @Test
@@ -78,5 +86,20 @@ public class UserServiceImplTest {
     @Test
     public void testGetAll() throws Exception {
         service.getAll();
+    }
+
+    @Test
+    public void testDelFromBasket() throws Exception {
+        service.delFromBasket(102, 102);
+    }
+
+    @Test
+    public void testDelAllFromBasket() throws Exception {
+        service.delAllFromBasket(102);
+    }
+
+    @Test
+    public void testAddToBasket() throws Exception {
+        service.addToBasket(104, 102);
     }
 }
