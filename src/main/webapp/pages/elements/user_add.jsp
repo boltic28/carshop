@@ -11,7 +11,7 @@
             </div>
             <div class="modal-body">
 
-                <form:form modelAttribute="userTo" class="form-horizontal" method="post" id="detailsForm" action="/register">
+                <form:form modelAttribute="userTo" class="form-horizontal" method="post" id="detailsForm">
                     <input type="hidden" id="id" name="id">
 
                     <%--<input type="hidden" id="registered" name="registered">--%>

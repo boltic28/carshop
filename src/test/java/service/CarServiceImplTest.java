@@ -16,10 +16,6 @@ import service.car.CarServiceImpl;
 
 import javax.annotation.Resource;
 
-import java.util.Date;
-
-import static org.junit.Assert.*;
-
 /**
  * Created by Siarhei Baltrukevich on 26.06.2016.
  */
@@ -42,10 +38,10 @@ public class CarServiceImplTest {
                 "agregate, skin, aircondition, castdisk, img1)"
                 + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         template.update(sql, 102, "audi", "a4", "Auto", "gray", "diesel", 2014, 5400, 45000, 99999, "sedan", "used", 1, 1, 1, "for delete");
-        template.update(sql, 103, "audi", "a4", "Auto", "gray", "diesel", 2014, 5400, 45000, 99999, "sedan", "used", 1, 1, 1, "for update");
-        template.update(sql, 104, "audi", "a4", "Auto", "gray", "diesel", 2014, 5400, 45000, 99999, "sedan", "used", 1, 1, 1, "for get");
+        template.update(sql, 103, "audi", "a6", "Auto", "gray", "diesel", 2014, 5400, 45000, 99999, "sedan", "used", 1, 1, 1, "for update");
+        template.update(sql, 104, "audi", "a8", "Auto", "gray", "diesel", 2014, 5400, 45000, 99999, "sedan", "used", 1, 1, 1, "for get");
 
-        template.update("INSERT INTO users (id, login, password) VALUES (99999, 'login', 'testpass')");
+        template.update("INSERT INTO users (id, login, password, email) VALUES (99999, 'login', 'testpass', 'test@mail.ru')");
 
         String sql1 = "INSERT INTO users_has_cars (users_id, cars_id) VALUES (?, ?)";
         template.update(sql1, 99999, 102);
@@ -89,5 +85,10 @@ public class CarServiceImplTest {
     @Test
     public void testDelete() throws Exception {
         service.delete(102);
+    }
+
+    @Test
+    public void testGetModelsForBrand(){
+        service.getModelsForBrands();
     }
 }

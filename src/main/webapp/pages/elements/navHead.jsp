@@ -53,7 +53,7 @@
                     </c:if>
                     <c:if test="${isLogin == 'no'}">
                         <li><a href="#" onclick=login()>Войти</a></li>
-                        <li><a href="#" onclick=add_user()>Зарегистрироваться</a></li>
+                        <li><a href="#" onclick=add_user('/register')>Зарегистрироваться</a></li>
                     </c:if>
             </ul>
         </div><!-- /.navbar-collapse -->

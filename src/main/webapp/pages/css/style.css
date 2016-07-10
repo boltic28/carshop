@@ -57,7 +57,7 @@
 
 /*page of car*/
 .list_of_car{
-    margin: 20px;
+    /*margin: 20px;*/
 }
 .list_of_car img{
     width: 200px;
@@ -132,4 +132,43 @@
     width: 200px;
     height: 127px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+/*filter*/
+.filter{
+    padding: 15px;
+    background-color: yellowgreen;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+.filter h3{
+    text-align: center;
+}
+
+/*admin*/
+.admin-log-field{
+
+    width: 100%;
+    height: 60%;
+}
+.form-admin{
+    position: relative;
+    margin: auto;
+    margin-top: 10%;
+    padding: 25px;
+    border: solid 1px darkgreen;
+    background-color: yellowgreen;
+    width: 380px;
+    height: 200px;
+    align-content: center;
+    vertical-align: middle;
+}
+.new-user{
+    text-align: center;
+    position: relative;
+    margin: 20px auto;
+}
+.cars_img_admin img{
+    width: 100px;
+}
+.car-del-btn a{
+    color: white;
 }

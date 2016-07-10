@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -111,6 +113,24 @@ public class CarServiceImpl implements CarService {
     public void delete(int carId) {
         jdbcTemplate.update("DELETE FROM users_has_cars WHERE cars_id=" + carId);
         jdbcTemplate.update("DELETE FROM cars WHERE id=" + carId);
+    }
+
+    @Override
+    public Map<String, List<String>> getModelsForBrands() {
+        return getAll().stream()
+                .collect(Collectors.groupingBy(Car::getBrand, Collectors.mapping(Car::getModel, Collectors.toList())));
+    }
+
+    @Override
+    public List<String> getBrands() {
+        String sqlForUser = "SELECT DISTINCT brand FROM cars";
+
+        return jdbcTemplate.query(sqlForUser, new RowMapper<String>() {
+            @Override
+            public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+                return rs.getString("brand");
+            }
+        }).stream().sorted(String::compareTo).collect(Collectors.toList());
     }
 
     private Car getCarFromRs(ResultSet rs) throws SQLException,
