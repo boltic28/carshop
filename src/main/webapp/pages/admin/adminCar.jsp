@@ -36,7 +36,9 @@
         <th>Состояние</th>
         <th>Пробег</th>
         <th>Стоимость</th>
-        <th>Продана</th>
+        <th>Диски</th>
+        <th>Конд</th>
+        <th>Кожа</th>
         <th></th>
     </tr>
     </thead>
@@ -55,9 +57,15 @@
             <td>${car.odo} km</td>
             <td>${car.price}</td>
             <td>${car.hasCastDisk()}</td>
+            <td>${car.hasConditioner()}</td>
+            <td>${car.hasSkin()}</td>
 
             <td>
-                <button class="btn btn-info btn-sm" onclick=""><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
+                <button class="btn btn-info btn-sm" onclick="set_car('${car.id}','${car.brand}','${car.model}','${car.transmition}',
+                    '${car.color}','${car.engine}','${car.year}','${car.price}','${car.odo}','${car.view}','${car.frame}','${car.agregate}',
+                    '${car.hasSkin()}','${car.hasConditioner()}','${car.hasCastDisk()}','${car.img1}','${car.img2}','${car.img3}')">
+
+                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
                 <button class="btn btn-danger btn-sm car-del-btn"><a href="/admin/car/${car.id}/del"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a> </button>
             </td>
         </tr>

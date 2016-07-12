@@ -38,7 +38,13 @@
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <c:set var="user" scope="page" value="${curuser}" />
-                    <c:if test="${isLogin == 'yes'}">
+
+                <c:if test="${isLogin == 'no'}">
+                    <li><a href="#" onclick=login()>Войти</a></li>
+                    <li><a href="#" onclick=add_user('/register')>Зарегистрироваться</a></li>
+                </c:if>
+
+                <c:if test="${isLogin == 'yes'}">
                         <li class="entered_user">Вы вошли как ${user.name}</li>
                         <li><a href="/exit">Выйти</a></li>
                         <li class="dropdown">
@@ -50,11 +56,11 @@
                                 <li><a href="/basket/delall">Очистить корзину</a></li>
                             </ul>
                         </li>
-                    </c:if>
-                    <c:if test="${isLogin == 'no'}">
+                </c:if>
+                <c:if test="${isLogin == 'no'}">
                         <li><a href="#" onclick=login()>Войти</a></li>
                         <li><a href="#" onclick=add_user('/register')>Зарегистрироваться</a></li>
-                    </c:if>
+                </c:if>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

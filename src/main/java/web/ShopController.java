@@ -222,7 +222,9 @@ public class ShopController {
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String adminLog(ModelMap model) {
-
+        if(admin){
+            return "admin/adminUser";
+        }
         return "admin/adminLog";
     }
 // admin for users
@@ -236,10 +238,13 @@ public class ShopController {
                 User user = userService.getByEmail(login);
                 if (user != null && pass.equals(user.getPassword()) && user.getPassword().contains("Admin")) {
                     loggedUser = user;
+
                     admin = true;
+                    model.addAttribute("adminHere", true);
+
                     model.addAttribute("isLogin", "yes");
                     model.addAttribute("curuser", loggedUser);
-                    model.addAttribute("adminHere", admin);
+
                     model.addAttribute("userList", userService.getAll());
 
                     return "admin/adminUser";

@@ -14,6 +14,7 @@
 
                 <form:form modelAttribute="car" class="form-horizontal" method="post" id="carForm" action="/admin/car/add">
                     <input type="hidden" id="id" name="id">
+                    <input type="hidden" id="view" name="view">
 
                     <%--<input type="hidden" id="registered" name="registered">--%>
 
@@ -142,19 +143,19 @@
                         <label for="skin" class="control-label col-xs-3">Кожа</label>
 
                         <div class="col-xs-1">
-                            <input type="radio" class="form-control" id="skin" name="skin">
+                            <input type="checkbox" class="form-control" id="skin" name="skin">
                         </div>
 
                         <label for="conditioner" class="control-label col-xs-3">Кондиционер</label>
 
                         <div class="col-xs-1">
-                            <input type="radio" class="form-control" id="conditioner" name="conditioner">
+                            <input type="checkbox" class="form-control" id="conditioner" name="conditioner">
                         </div>
 
                         <label for="castDisk" class="control-label col-xs-3">Литые диски</label>
 
                         <div class="col-xs-1">
-                            <input type="radio" class="form-control" id="castDisk" name="castDisk">
+                            <input type="checkbox" class="form-control" id="castDisk" name="castDisk">
                         </div>
                     </div>
 
