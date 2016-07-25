@@ -18,6 +18,7 @@
 
 <section class="main_section">
     <h2>Работа с автомобилями</h2>
+    <p>${message} ${exception}</p>
     <hr>
 </section>
 
@@ -73,11 +74,13 @@
 </table>
 <hr>
 <div class="new-user">
-    <button class="btn btn-success btn-md" onclick="add_car()">Добавить автомобиль</button>
+    <button class="btn btn-success btn-md" onclick="add_car()">Добавить автомобиль в ручную</button>
+    <button class="btn btn-success btn-md" onclick="add_car_exc()">Добавить автомобиль из EXCEL</button>
 </div>
 </body>
 
-<jsp:include page="../elements/car_add.jsp"/>
+<jsp:include page="../elements/goods_add/carAdd.jsp"/>
+<jsp:include page="../elements/goods_add/carFromExcel.jsp"/>
 <jsp:include page="../elements/footer.jsp"/>
 
 </html>

@@ -178,4 +178,28 @@ public class Car {
     public void setCastDisk(boolean castDisk) {
         this.castDisk = castDisk;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", year=" + year +
+                ", price=" + price +
+                ", odo=" + odo +
+                ", view=" + view +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", transmition='" + transmition + '\'' +
+                ", color='" + color + '\'' +
+                ", frame='" + frame + '\'' +
+                ", engine='" + engine + '\'' +
+                ", agregate='" + agregate + '\'' +
+                ", img1='" + img1 + '\'' +
+                ", img2='" + img2 + '\'' +
+                ", img3='" + img3 + '\'' +
+                ", conditioner=" + conditioner +
+                ", skin=" + skin +
+                ", castDisk=" + castDisk +
+                '}';
+    }
 }

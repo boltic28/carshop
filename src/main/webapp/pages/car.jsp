@@ -23,7 +23,7 @@
         <div class="row">
 
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 common_car main_car">
-                <img src="${pageContext.request.contextPath}/pages/img/${car.img1}">
+                <img src="/${car.id}/a">
             </div>
 
             <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 common_car descr_car">
@@ -77,9 +77,9 @@
         <div class="row">
 
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 common_car photos_car">
-                <img src="${pageContext.request.contextPath}/pages/img/${car.img1}">
-                <img src="${pageContext.request.contextPath}/pages/img/${car.img2}">
-                <img src="${pageContext.request.contextPath}/pages/img/${car.img3}">
+                <img src="${pageContext.request.contextPath}/carshop/${car.img1}">
+                <img src="${pageContext.request.contextPath}/img/${car.img2}">
+                <img src="${pageContext.request.contextPath}/img/${car.img3}">
             </div>
 
             <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 common_car price_car">

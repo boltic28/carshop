@@ -25,6 +25,10 @@ function add_car(){
     $('#editRowCar').modal();
 }
 
+function add_car_exc(){
+    $('#addCarFromExcel').modal();
+}
+
 function set_car(id, brand, model, transmition, color, engine, year, price, odo, view, frame, agregate, skin, conditioner, castDisk, img1, img2, img3){
     $('.modal-header').find('h2').text("Настройка "+ brand.toUpperCase() + " " + model.toUpperCase() + ". Просмотров - " + view);
 

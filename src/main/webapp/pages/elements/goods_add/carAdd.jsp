@@ -12,7 +12,7 @@
             </div>
             <div class="modal-body">
 
-                <form:form modelAttribute="car" class="form-horizontal" method="post" id="carForm" action="/admin/car/add">
+                <form:form modelAttribute="car" enctype="multipart/form-data" accept="image/jpg" class="form-horizontal" method="post" id="carForm" action="/admin/car/add">
                     <input type="hidden" id="id" name="id">
                     <input type="hidden" id="view" name="view">
 
@@ -161,30 +161,46 @@
 
                     <div class="form-group">
                         <hr>
-                        <label for="img1" class="control-label col-xs-3">Фото 1</label>
+                        <label for="img1" class="control-label col-xs-3">Имя 1</label>
 
                         <div class="col-xs-9">
-                            <input type="text" class="form-control" id="img1" name="img1"
-                                   placeholder="Повторите пароль">
+                            <input type="text" class="form-control" id="img1" name="img1">
                         </div>
+                        <label for="img1f" class="control-label col-xs-3">Фото 1</label>
+
+                        <div class="col-xs-9">
+                            <input type="file" class="form-control" id="img1f" name="img1f">
+                        </div>
+
+
                     </div>
 
                     <div class="form-group">
-                        <label for="img2" class="control-label col-xs-3">фото 2</label>
+                        <label for="img2" class="control-label col-xs-3">Имя 2</label>
 
                         <div class="col-xs-9">
-                            <input type="text" class="form-control" id="img2" name="img2"
-                                   placeholder="Повторите пароль">
+                            <input type="text" class="form-control" id="img2" name="img2">
                         </div>
+                        <label for="img2f" class="control-label col-xs-3">фото 2</label>
+
+                        <div class="col-xs-9">
+                            <input type="file" class="form-control" id="img2f" name="img2f">
+                        </div>
+
                     </div>
 
                     <div class="form-group">
-                        <label for="img3" class="control-label col-xs-3">фото 3</label>
+                        <label for="img3" class="control-label col-xs-3">Имя 3</label>
 
                         <div class="col-xs-9">
-                            <input type="text" class="form-control" id="img3" name="img3"
-                                   placeholder="Повторите пароль">
+                            <input type="text" class="form-control" id="img3" name="img3">
                         </div>
+                        <label for="img3f" class="control-label col-xs-3">фото 3</label>
+
+                        <div class="col-xs-9">
+                            <input type="file" class="form-control" id="img3f" name="img3f">
+                        </div>
+
                     </div>
 
                     <div class="form-group">

@@ -6,16 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import service.car.CarService;
 import service.user.UserService;
+import util.ExcelReader;
 
 import javax.validation.Valid;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -156,6 +158,15 @@ public class ShopController {
         return "car";
     }
 
+    @RequestMapping(value = "/{carId}/{var}", method = RequestMethod.GET)
+    @ResponseBody
+    public File imageForCar(ModelMap model, @PathVariable("carId") int id, @PathVariable("var") String var) {
+        File file = new File("/carshop/images/car", id + var +".jpg");
+        System.out.println(file.getName());
+
+        return file;
+    }
+
 //from basket work
     @RequestMapping(value = "/basket", method = RequestMethod.GET)
     public String home(ModelMap model) {
@@ -240,7 +251,7 @@ public class ShopController {
                     loggedUser = user;
 
                     admin = true;
-                    model.addAttribute("adminHere", true);
+                    model.addAttribute("adminHere", "yes");
 
                     model.addAttribute("isLogin", "yes");
                     model.addAttribute("curuser", loggedUser);
@@ -309,13 +320,56 @@ public class ShopController {
     }
 
     @RequestMapping(value = "/admin/car/add", method = RequestMethod.POST)
-    public String adminCarDel(@Valid Car car, BindingResult result, SessionStatus status, ModelMap model) {
+    public String adminCarAdd(@Valid Car car, BindingResult result, SessionStatus status, ModelMap model,
+                              @RequestParam(value = "img1f", required = false) MultipartFile img1,
+                              @RequestParam(value = "img2f", required = false) MultipartFile img2,
+                              @RequestParam(value = "img3f", required = false) MultipartFile img3) {
+        String mess;
+        if (!img1.isEmpty()) {
+            try {
+                byte[] bytes = img1.getBytes();
+                BufferedOutputStream stream =
+                        new BufferedOutputStream(new FileOutputStream(new File("/pages/img/" + car.getId() + "a.jpg")));
+                stream.write(bytes);
+                stream.close();
+                car.setImg1(car.getId() + "a.jpg");
+                mess = "Вы удачно загрузили " + img1.getName() + " в " + car.getId() + "a";
+            } catch (Exception e) {
+                mess = "Вам не удалось загрузить " + img1.getName() + " => " + e.getMessage();
+            }
+        } else {
+            mess = "Вам не удалось загрузить файл, потому что он пустой.";
+        }
+
         carService.saveOrUpdate(car);
         model.addAttribute("carList", carService.getAll());
+        model.addAttribute("message", mess);
         if(admin){
             return "admin/adminCar";
         }
         return "admin/adminLog";
+    }
+
+    @RequestMapping(value = "/admin/car/add-excel", method = RequestMethod.POST)
+    public String adminCarAddWithExcel(ModelMap model, @RequestParam(value = "file", required = false) MultipartFile file,
+                                       @RequestParam(value = "name", required = false) String name) {
+
+        if (!file.isEmpty()) {
+            try {
+                Car car = ExcelReader.parse(file.getInputStream());
+                carService.saveOrUpdate(car);
+                model.addAttribute("carList", carService.getAll());
+                model.addAttribute("message", car.getBrand().toUpperCase() + " " + car.getModel().toUpperCase() + " загружен");
+                if (admin) {
+                    return "admin/adminCar";
+                }
+                return "admin/adminLog";
+            } catch (Exception e) {
+                return "Вам не удалось загрузить файл => " + e.getMessage();
+            }
+        } else {
+            return "Вам не удалось загрузить файл, потому что файл пустой.";
+        }
     }
 
     // admin for motos

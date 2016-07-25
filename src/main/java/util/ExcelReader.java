@@ -1,55 +1,47 @@
 package util;
 
-import com.sun.rowset.internal.Row;
-import javafx.scene.control.Cell;
+import models.Car;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
 
 import java.io.*;
-import java.util.Iterator;
 
 /**
  * Created by Siarhei Baltrukevich on 12.07.2016.
  */
 public class ExcelReader{
 
-    private String inputFile;
+    public static Car parse(InputStream stream) throws IOException {
 
-    public void setInputFile(String inputFile) {
-        this.inputFile = inputFile;
-    }
+        InputStream in = null;
+        HSSFWorkbook wb = null;
+        String[] resultArr = new String[32];
+        int i = 0;
 
-    public void read() throws IOException {
-        File inputWorkbook = new File(inputFile);
-        Workbook w;
-        try {
-            w = Workbook.getWorkbook(inputWorkbook);
-            // Get the first sheet
-            Sheet sheet = w.getSheet(0);
-            // Loop over first 10 column and lines
+            in = stream;
+            wb = new HSSFWorkbook(in);
 
-            for (int j = 0; j < sheet.getColumns(); j++) {
-                for (int i = 0; i < sheet.getRows(); i++) {
-                    Cell cell = sheet.getCell(j, i);
-                    CellType type = cell.getType();
-                    if (type == CellType.LABEL) {
-                        System.out.println("I got a label "
-                                + cell.getContents());
-                    }
-
-                    if (type == CellType.NUMBER) {
-                        System.out.println("I got a number "
-                                + cell.getContents());
-                    }
-
+        Sheet sheet = wb.getSheetAt(0);
+        for (Row row : sheet) {
+            for (Cell cell : row) {
+                int cellType = cell.getCellType();
+                switch (cellType) {
+                    case Cell.CELL_TYPE_STRING:
+                        resultArr[i++] = cell.getStringCellValue();
+                        break;
+                    case Cell.CELL_TYPE_NUMERIC:
+                        resultArr[i++] = String.valueOf((int)cell.getNumericCellValue());
+                        break;
+                    default:
+                        resultArr[i++] = "";
+                        break;
                 }
             }
-        } catch (BiffException e) {
-            e.printStackTrace();
         }
-    }
 
-    public static void main(String[] args) throws IOException {
-        ReadExcel test = new ReadExcel();
-        test.setInputFile("c:/temp/lars.xls");
-        test.read();
+        return new Car(0, Integer.parseInt(resultArr[11]), Integer.parseInt(resultArr[13]), Integer.parseInt(resultArr[15]), 0, resultArr[1], resultArr[3], resultArr[5], resultArr[7],
+                resultArr[17], resultArr[9], resultArr[19], resultArr[27], resultArr[29], resultArr[31], resultArr[23].equals("1"), resultArr[21].equals("1"), resultArr[25].equals("1"));
     }
 }
