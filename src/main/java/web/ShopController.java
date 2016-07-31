@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import service.car.CarService;
 import service.user.UserService;
 import util.ExcelReader;
+import util.PDFCreator;
 
 import javax.validation.Valid;
 import java.io.BufferedOutputStream;
@@ -229,6 +230,34 @@ public class ShopController {
         model.addAttribute("total", userService.getTotalCost(loggedUser.getId()));
         model.addAttribute("totGoods", total.size());
         return "basket";
+    }
+
+    @RequestMapping(value = "/getpdf/{carId}", method = RequestMethod.GET)
+    public String getPDF(ModelMap model, @PathVariable("carId") int id) {
+        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
+        model.addAttribute("curuser", loggedUser);
+        try {
+            Car car = carService.getOne(id);
+            PDFCreator.createTemplate(car, loggedUser.getName());
+            model.addAttribute("message", "PDF was created");
+        } catch (Exception e) {
+            model.addAttribute("message", "PDF do not created, " + e.getMessage());
+        }
+        List total = carService.getAllForUser(loggedUser.getId());
+        model.addAttribute("goodsList", total);
+        model.addAttribute("total", userService.getTotalCost(loggedUser.getId()));
+        model.addAttribute("totGoods", total.size());
+        return "basket";
+    }
+
+    @RequestMapping(value = "/comparsion", method = RequestMethod.GET)
+    public String comparsion(ModelMap model) {
+        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
+        model.addAttribute("curuser", loggedUser);
+
+        List comparsionList = carService.getAllForUser(loggedUser.getId());
+        model.addAttribute("compareList", comparsionList);
+        return "comparison";
     }
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)

@@ -172,3 +172,18 @@
 .car-del-btn a{
     color: white;
 }
+.bold_td{
+    font-size: large;
+    font-style: italic;
+}
+.red_td{
+    font-size: x-large;
+    color: red;
+}
+.green_td{
+    font-size: x-large;
+    color: forestgreen;
+}
+.comparison_img {
+    width: 200px;
+}

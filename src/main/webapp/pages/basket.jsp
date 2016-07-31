@@ -37,6 +37,7 @@
                 </td>
                 <td class="cars_price">$<c:out value="${car.price}"/></td>
                 <td><a href="inbasket/${car.id}/del">Убрать</a></td>
+                <td><a href="getpdf/${car.id}">в PDF-файл</a></td>
             </tr>
         </c:forEach>
 

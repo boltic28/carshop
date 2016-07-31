@@ -51,6 +51,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="/basket">Корзина</a></li>
                                 <li><a href="#">Популярные товары</a></li>
+                                <li><a href="/comparsion">Сравнить мои товары</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="/basket/delall">Очистить корзину</a></li>
                             </ul>
