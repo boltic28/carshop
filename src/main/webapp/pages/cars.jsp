@@ -44,21 +44,21 @@
                     <td><c:out value="${car.view}"/></td>
 
                     <td class="cars_price">
-                        <c:if test="${isLogin == 'yes'}">
+                        <c:if test="${curUser != null}">
                         $<c:out value="${car.price}"/>
                         </c:if>
-                        <c:if test="${isLogin == 'no'}">
-                            <em><a href="/registration">зарегистрируйтесь</a></em>
+                        <c:if test="${curUser == null}">
+                            <em><a onclick=add_user('/register')>Регистрация/</a> <a href="/login">Вход</a></em>
                         </c:if>
 
                     </td>
 
                     <td>
-                        <c:if test="${isLogin == 'yes'}">
+                        <c:if test="${curUser != null}">
                             <a href="inbasket/${car.id}/addFromCars">В корзину</a>
                         </c:if>
-                        <c:if test="${isLogin == 'no'}">
-                            <em><a href="/registration">войдите в аккаунт</a></em>
+                        <c:if test="${curUser == null}">
+                            <em><a onclick=add_user('/register')>Регистрация/</a> <a href="/login">Вход</a></em>
                         </c:if>
                     </td>
                 </tr>
@@ -69,9 +69,11 @@
     </div>
 </section>
 
-
+<jsp:include page="elements/user_add.jsp"/>
 </body>
 
+
 <jsp:include page="elements/footer.jsp"/>
+
 
 </html>

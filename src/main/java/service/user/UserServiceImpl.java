@@ -23,14 +23,14 @@ public class UserServiceImpl implements UserService {
 
     public void saveOrUpdate(User user) {
         if (user.getId() > 0) {
-            String sql = "UPDATE users SET login=?, email=?, password=? WHERE id=?";
+            String sql = "UPDATE users SET login=?, email=?, password=?, role=? WHERE id=?";
             jdbcTemplate.update(sql, user.getName(), user.getEmail(),
-                    user.getPassword(), user.getId());
+                    user.getPassword(), "user", user.getId());
         } else {
-            String sql = "INSERT INTO users (login, email, password)"
-                    + " VALUES (?, ?, ?)";
+            String sql = "INSERT INTO users (login, email, password, role)"
+                    + " VALUES (?, ?, ?, ?)";
             jdbcTemplate.update(sql, user.getName(), user.getEmail(),
-                    user.getPassword());
+                    user.getPassword(), "user");
         }
     }
 
@@ -74,6 +74,27 @@ public class UserServiceImpl implements UserService {
         });
     }
 
+    public User getByName(String name) {
+        try {
+            String sql = "SELECT * FROM users WHERE login=\"" + name + "\"";
+            return jdbcTemplate.query(sql, new ResultSetExtractor<User>() {
+
+                @Override
+                public User extractData(ResultSet rs) throws SQLException,
+                        DataAccessException {
+                    if (rs.next()) {
+                        return getUserFromRs(rs);
+                    }
+
+                    return null;
+                }
+
+            });
+        }catch (Exception e){
+            return null;
+        }
+    }
+
     public List<User> getAll() {
         String sql = "SELECT * FROM users";
 
@@ -89,19 +110,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void addToBasket(int userId, int carId) {
-        String sql = "INSERT INTO users_has_cars (users_id, cars_id) VALUES (?, ?)";
+        String sql = "INSERT INTO user_has_cars (user_id, car_id) VALUES (?, ?)";
         jdbcTemplate.update(sql, userId, carId);
     }
 
     @Override
     public void delFromBasket(int userId, int carId) {
-        String sql = "DELETE FROM users_has_cars WHERE users_id=? AND cars_id=?";
+        String sql = "DELETE FROM user_has_cars WHERE user_id=? AND car_id=?";
         jdbcTemplate.update(sql, userId, carId);
     }
 
     @Override
     public void delAllFromBasket(int userId) {
-        String sql = "DELETE FROM users_has_cars WHERE users_id=?";
+        String sql = "DELETE FROM user_has_cars WHERE user_id=?";
         jdbcTemplate.update(sql, userId);
     }
 
@@ -118,6 +139,7 @@ public class UserServiceImpl implements UserService {
         user.setName(rs.getString("login"));
         user.setEmail(rs.getString("email"));
         user.setPassword(rs.getString("password"));
+        user.setRole(rs.getString("role"));
 
         return user;
     }

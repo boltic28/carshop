@@ -30,6 +30,7 @@
             <th>Имя</th>
             <th>Пароль</th>
             <th>E-mail</th>
+            <th>Допуск</th>
             <th></th>
         </tr>
         </thead>
@@ -40,6 +41,7 @@
                 <td>${user.name}</td>
                 <td>${user.password}</td>
                 <td>${user.email}</td>
+                <td>${user.role}</td>
 
                 <td>
                     <button class="btn btn-info btn-sm" onclick=""><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>

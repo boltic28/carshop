@@ -38,19 +38,28 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
+    public void addToBasket(int carId, int userId) {
+        String sql = "INSERT INTO user_has_cars (user_id, car_id) VALUE (?, ?)";
+        jdbcTemplate.update(sql, userId, carId);
+    }
+
+    @Override
     public List<Car> getAllForUser(int userId) {
-        String sqlForUser = "SELECT * FROM users_has_cars WHERE users_id=" + userId;
+        String sqlForUser = "SELECT * FROM user_has_cars WHERE user_id=" + userId;
+        try{
+            List<Integer> listOfCarsId = jdbcTemplate.query(sqlForUser, new RowMapper<Integer>() {
+                @Override
+                public Integer mapRow(ResultSet rs, int rowNum) throws SQLException {
+                    return rs.getInt("car_id");
+                }
+            });
 
-        List<Integer> listOfCarsId = jdbcTemplate.query(sqlForUser, new RowMapper<Integer>() {
-            @Override
-            public Integer mapRow(ResultSet rs, int rowNum) throws SQLException {
-                return rs.getInt("cars_id");
-            }
-        });
-
-        return listOfCarsId.stream()
-                .map(this::getOne)
-                .collect(Collectors.toList());
+            return listOfCarsId.stream()
+                    .map(this::getOne)
+                    .collect(Collectors.toList());
+        }catch (Exception e){
+            return null;
+        }
     }
 
     @Override
@@ -98,12 +107,6 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public void addToBasket(int carId, int userId) {
-        String sql = "INSERT INTO users_has_cars (users_id, cars_id) VALUE (?, ?)";
-        jdbcTemplate.update(sql, userId, carId);
-    }
-
-    @Override
     public void addView(int carId, int view) {
         String sql = "UPDATE cars SET  view=? WHERE id=?";
         jdbcTemplate.update(sql, view, carId);
@@ -111,7 +114,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void delete(int carId) {
-        jdbcTemplate.update("DELETE FROM users_has_cars WHERE cars_id=" + carId);
+        jdbcTemplate.update("DELETE FROM user_has_cars WHERE car_id=" + carId);
         jdbcTemplate.update("DELETE FROM cars WHERE id=" + carId);
     }
 

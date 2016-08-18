@@ -13,8 +13,7 @@
 
                 <form:form modelAttribute="userTo" class="form-horizontal" method="post" id="detailsForm">
                     <input type="hidden" id="id" name="id">
-
-                    <%--<input type="hidden" id="registered" name="registered">--%>
+                    <input type="hidden" id="role" name="role">
 
                     <div class="form-group">
                         <label for="name" class="control-label col-xs-3">Логин</label>

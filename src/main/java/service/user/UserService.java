@@ -13,6 +13,7 @@ public interface UserService {
     void delete(int userId);
     User get(int userId);
     User getByEmail(String name);
+    User getByName(String name);
     List<User> getAll();
 
     void addToBasket(int userId, int carId);

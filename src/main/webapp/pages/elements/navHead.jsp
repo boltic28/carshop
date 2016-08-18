@@ -37,15 +37,17 @@
                 <button type="submit" class="btn btn-default">Поискать</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <c:set var="user" scope="page" value="${curuser}" />
+                <c:set var="user" scope="page" value="${curUser}" />
 
-                <c:if test="${adminHere == 'yes'}">
-                    <li><a href="admin/car" onclick=login()>Админка</a></li>
+                <c:if test="${curUser.role == 'ROLE_ADMIN'}">
+                    <li class="entered_user">Вы вошли как ${curUser.name}</li>
+                    <li><a href="admin">Админка</a></li>
+                    <li><a href="/logout">Выйти</a></li>
                 </c:if>
 
-                <c:if test="${isLogin == 'yes'}">
-                        <li class="entered_user">Вы вошли как ${user.name}</li>
-                        <li><a href="/exit">Выйти</a></li>
+                <c:if test="${curUser.role == 'ROLE_USER'}">
+                        <li class="entered_user">Вы вошли как ${curUser.name}</li>
+                        <li><a href="/logout">Выйти</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Покупки<span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -57,8 +59,9 @@
                             </ul>
                         </li>
                 </c:if>
-                <c:if test="${isLogin == 'no'}">
-                        <li><a href="#" onclick=login()>Войти</a></li>
+
+                <c:if test="${curUser == null}">
+                    <li><a href="/login">Войти</a></li>
                         <li><a href="#" onclick=add_user('/register')>Зарегистрироваться</a></li>
                 </c:if>
             </ul>

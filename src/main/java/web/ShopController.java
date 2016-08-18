@@ -3,7 +3,11 @@ package web;
 import models.Car;
 import models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import service.car.CarService;
+import service.user.UserDetailsServiceImpl;
 import service.user.UserService;
 import util.ExcelReader;
 import util.PDFCreator;
@@ -35,45 +40,13 @@ public class ShopController {
     @Autowired
     private CarService carService;
 
-    private User loggedUser;
+    private User curUser;
     private boolean admin;
-
 
     @RequestMapping(method = RequestMethod.GET)
     public String root(ModelMap model) {
-        model.addAttribute("mess", "Welcom to SHOP!");
-        model.addAttribute("topGoods", carService.getTopPosition());
-        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
-        if(loggedUser != null)
-        {
-            model.addAttribute("curuser", loggedUser);
-        }
-        return "index";
-    }
-//logging
-    @RequestMapping(method = RequestMethod.POST)
-    public String login(ModelMap model,
-                              @RequestParam(value = "login", required = false) String login,
-                              @RequestParam(value = "password", required = false) String pass) {
-        try {
-            if (!login.isEmpty()) {
-                User user = userService.getByEmail(login);
-                if (user != null && pass.equals(user.getPassword())) {
-                    loggedUser = user;
-
-                    model.addAttribute("topGoods", carService.getTopPosition());
-
-                    model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
-                    model.addAttribute("curuser", loggedUser);
-
-                    return "index";
-                }
-                model.addAttribute("mess", "not valid data ");
-            }
-        }catch (Exception e){
-            System.out.println("ugu");
-        }
-        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
+        curUser = userService.getByName(getPrincipal());
+        model.addAttribute("curUser", curUser);
         model.addAttribute("topGoods", carService.getTopPosition());
         return "index";
     }
@@ -81,33 +54,20 @@ public class ShopController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String saveRegister(@Valid User user, BindingResult result, SessionStatus status, ModelMap model) {
         if (result.hasErrors()) {
-            model.addAttribute("register", true);
+            model.addAttribute("mess", "Ошибочка вышла, сорри");
             return "index";
         } else {
             userService.saveOrUpdate(user);
-
-            model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
-            model.addAttribute("curuser", loggedUser);
             model.addAttribute("topGoods", carService.getTopPosition());
-            model.addAttribute("curuser", loggedUser);
-
-            return "index";        }
-    }
-
-    @RequestMapping(value = "/exit", method = RequestMethod.GET)
-    public String exit(ModelMap model) {
-        loggedUser = null;
-        model.addAttribute("isLogin", "no");
-        model.addAttribute("topGoods", carService.getTopPosition());
-        return "index";
+            model.addAttribute("mess", "Введите свои данные");
+            return "loginning";        }
     }
 
 //from cars work
     @RequestMapping(value = "/cars", method = RequestMethod.GET)
     public String cars(ModelMap model) {
 
-        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
-        model.addAttribute("curuser", loggedUser);
+        model.addAttribute("curUser", curUser);
 
         model.addAttribute("carList", carService.getAll());
         model.addAttribute("models", carService.getModelsForBrands());
@@ -127,8 +87,7 @@ public class ShopController {
                          @RequestParam(value = "year", required = false) Integer year,
                          @RequestParam(value = "price", required = false) Integer price) {
 
-        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
-        model.addAttribute("curuser", loggedUser);
+        model.addAttribute("curUser", curUser);
 
         model.addAttribute("carList", carService.getAll().stream()
                 .filter(car -> !brand.equals("all") ? car.getBrand().equals(brand) : !car.getBrand().equals("null"))
@@ -152,8 +111,7 @@ public class ShopController {
     public String cars(ModelMap model, @PathVariable("carId") int id) {
         Car currentCar = carService.getOne(id);
         carService.addView( id, currentCar.getView() + 1);
-        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
-        model.addAttribute("curuser", loggedUser);
+        model.addAttribute("curUser", curUser);
         model.addAttribute("curcar", currentCar );
 
         return "car";
@@ -171,49 +129,45 @@ public class ShopController {
 //from basket work
     @RequestMapping(value = "/basket", method = RequestMethod.GET)
     public String home(ModelMap model) {
-        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
-        model.addAttribute("curuser", loggedUser);
+        model.addAttribute("curUser", curUser);
 
-        List total = carService.getAllForUser(loggedUser.getId());
+        List total = carService.getAllForUser(curUser.getId());
         model.addAttribute("goodsList", total);
-        model.addAttribute("total", userService.getTotalCost(loggedUser.getId()));
-        model.addAttribute("totGoods", total.size());
+        model.addAttribute("total", userService.getTotalCost(curUser.getId()));
+        model.addAttribute("totGoods", total == null ? 0 : total.size());
         return "basket";
     }
 
     @RequestMapping(value = "/inbasket/{carId}/add", method = RequestMethod.GET)
     public String addToBasket(ModelMap model, @PathVariable("carId") int id) {
-        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
-        model.addAttribute("curuser", loggedUser);
+        model.addAttribute("curUser", curUser);
 
         model.addAttribute("curcar", carService.getOne(id));
 
-        carService.addToBasket(id, loggedUser.getId());
+        carService.addToBasket(id, curUser.getId());
 
         return "car";
     }
 
     @RequestMapping(value = "/inbasket/{carId}/addFromCars", method = RequestMethod.GET)
     public String addToBasketFromCars(ModelMap model, @PathVariable("carId") int id) {
-        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
-        model.addAttribute("curuser", loggedUser);
+        model.addAttribute("curUser", curUser);
 
         model.addAttribute("carList", carService.getAll());
         model.addAttribute("models", carService.getModelsForBrands());
         model.addAttribute("brands", carService.getBrands());
-        carService.addToBasket(id, loggedUser.getId());
+        carService.addToBasket(id, curUser.getId());
         return "cars";
     }
 
     @RequestMapping(value = "/inbasket/{carId}/del", method = RequestMethod.GET)
     public String delFromBasket(ModelMap model, @PathVariable("carId") int id) {
-        userService.delFromBasket(loggedUser.getId(), id);
-        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
-        model.addAttribute("curuser", loggedUser);
+        userService.delFromBasket(curUser.getId(), id);
+        model.addAttribute("curUser", curUser);
 
-        List total = carService.getAllForUser(loggedUser.getId());
+        List total = carService.getAllForUser(curUser.getId());
         model.addAttribute("goodsList", total);
-        model.addAttribute("total", userService.getTotalCost(loggedUser.getId()));
+        model.addAttribute("total", userService.getTotalCost(curUser.getId()));
         model.addAttribute("totGoods", total.size());
 
         return "basket";
@@ -221,91 +175,54 @@ public class ShopController {
 
     @RequestMapping(value = "/basket/delall", method = RequestMethod.GET)
     public String delAllFromBasket(ModelMap model) {
-        userService.delAllFromBasket(loggedUser.getId());
-        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
-        model.addAttribute("curuser", loggedUser);
+        userService.delAllFromBasket(curUser.getId());
+        model.addAttribute("curUser", curUser);
 
-        List total = carService.getAllForUser(loggedUser.getId());
+        List total = carService.getAllForUser(curUser.getId());
         model.addAttribute("goodsList", total);
-        model.addAttribute("total", userService.getTotalCost(loggedUser.getId()));
+        model.addAttribute("total", userService.getTotalCost(curUser.getId()));
         model.addAttribute("totGoods", total.size());
         return "basket";
     }
 
     @RequestMapping(value = "/getpdf/{carId}", method = RequestMethod.GET)
     public String getPDF(ModelMap model, @PathVariable("carId") int id) {
-        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
-        model.addAttribute("curuser", loggedUser);
+        model.addAttribute("curUser", curUser);
         try {
             Car car = carService.getOne(id);
-            PDFCreator.createTemplate(car, loggedUser.getName());
+            PDFCreator.createTemplate(car, curUser.getName());
             model.addAttribute("message", "PDF was created");
         } catch (Exception e) {
             model.addAttribute("message", "PDF do not created, " + e.getMessage());
         }
-        List total = carService.getAllForUser(loggedUser.getId());
+        List total = carService.getAllForUser(curUser.getId());
         model.addAttribute("goodsList", total);
-        model.addAttribute("total", userService.getTotalCost(loggedUser.getId()));
+        model.addAttribute("total", userService.getTotalCost(curUser.getId()));
         model.addAttribute("totGoods", total.size());
         return "basket";
     }
 
     @RequestMapping(value = "/comparsion", method = RequestMethod.GET)
     public String comparsion(ModelMap model) {
-        model.addAttribute("isLogin", loggedUser == null ? "no" : "yes");
-        model.addAttribute("curuser", loggedUser);
+        model.addAttribute("curUser", curUser);
 
-        List comparsionList = carService.getAllForUser(loggedUser.getId());
+        List comparsionList = carService.getAllForUser(curUser.getId());
         model.addAttribute("compareList", comparsionList);
         return "comparison";
     }
 
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String adminLog(ModelMap model) {
-        if(admin){
-            return "admin/adminUser";
-        }
-        return "admin/adminLog";
-    }
-// admin for users
-    @RequestMapping(value = "/admin", method = RequestMethod.POST)
-    public String admin(ModelMap model,
-                        @RequestParam(value = "login", required = false) String login,
-                        @RequestParam(value = "password", required = false) String pass) {
+    // admin for users------------------------------------------------------------------------------
+//    @Secured("ROLE_ADMIN")
+    @RequestMapping(value = {"/admin","/admin/user"}, method = RequestMethod.GET)
+    public String admin(ModelMap model) {
 
-        try {
-            if (!login.isEmpty()) {
-                User user = userService.getByEmail(login);
-                if (user != null && pass.equals(user.getPassword()) && user.getPassword().contains("Admin")) {
-                    loggedUser = user;
-
-                    admin = true;
-                    model.addAttribute("adminHere", "yes");
-
-                    model.addAttribute("isLogin", "yes");
-                    model.addAttribute("curuser", loggedUser);
-
-                    model.addAttribute("userList", userService.getAll());
-
-                    return "admin/adminUser";
-                }
-            }
-        }catch (Exception e){
-            System.out.println("ugu");
-        }
-
-        return "admin/adminLog";
-    }
-
-    @RequestMapping(value = "/admin/user", method = RequestMethod.GET)
-    public String adminUsers(ModelMap model) {
+        model.addAttribute("curuser", curUser);
         model.addAttribute("userList", userService.getAll());
-        if(admin){
-            return "admin/adminUser";
-        }
-        return "admin/adminLog";
+
+        return "admin/adminUser";
     }
 
+//    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/register/admin", method = RequestMethod.POST)
     public String saveRegisterFromAdmin(@Valid User user, BindingResult result, SessionStatus status, ModelMap model) {
         if (result.hasErrors()) {
@@ -318,36 +235,35 @@ public class ShopController {
         }
     }
 
+//    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/admin/user/{userId}/del", method = RequestMethod.GET)
     public String adminUserDel(ModelMap model, @PathVariable("userId") int id) {
+
         userService.delete(id);
         model.addAttribute("userList", userService.getAll());
-        if(admin){
-            return "admin/adminUser";
-        }
-        return "admin/adminLog";
+
+        return "admin/adminUser";
     }
 
     // admin for cars
+//    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/admin/car", method = RequestMethod.GET)
     public String adminCars(ModelMap model) {
         model.addAttribute("carList", carService.getAll());
-        if(admin){
-            return "admin/adminCar";
-        }
-        return "admin/adminLog";
+
+        return "admin/adminCar";
     }
 
+//    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/admin/car/{carId}/del", method = RequestMethod.GET)
     public String adminCarDel(ModelMap model, @PathVariable("carId") int id) {
         carService.delete(id);
         model.addAttribute("carList", carService.getAll());
-        if(admin){
-            return "admin/adminCar";
-        }
-        return "admin/adminLog";
+
+        return "admin/adminCar";
     }
 
+//    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/admin/car/add", method = RequestMethod.POST)
     public String adminCarAdd(@Valid Car car, BindingResult result, SessionStatus status, ModelMap model,
                               @RequestParam(value = "img1f", required = false) MultipartFile img1,
@@ -373,12 +289,11 @@ public class ShopController {
         carService.saveOrUpdate(car);
         model.addAttribute("carList", carService.getAll());
         model.addAttribute("message", mess);
-        if(admin){
-            return "admin/adminCar";
-        }
-        return "admin/adminLog";
+
+        return "admin/adminCar";
     }
 
+//    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/admin/car/add-excel", method = RequestMethod.POST)
     public String adminCarAddWithExcel(ModelMap model, @RequestParam(value = "file", required = false) MultipartFile file,
                                        @RequestParam(value = "name", required = false) String name) {
@@ -389,10 +304,9 @@ public class ShopController {
                 carService.saveOrUpdate(car);
                 model.addAttribute("carList", carService.getAll());
                 model.addAttribute("message", car.getBrand().toUpperCase() + " " + car.getModel().toUpperCase() + " загружен");
-                if (admin) {
-                    return "admin/adminCar";
-                }
-                return "admin/adminLog";
+
+                return "admin/adminCar";
+
             } catch (Exception e) {
                 return "Вам не удалось загрузить файл => " + e.getMessage();
             }
@@ -402,19 +316,48 @@ public class ShopController {
     }
 
     // admin for motos
+    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/admin/moto", method = RequestMethod.GET)
     public String adminMotos(ModelMap model) {
-        if(admin){
             return "admin/adminMoto";
-        }
-        return "admin/adminLog";
-
     }
 
+    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/admin/out", method = RequestMethod.GET)
     public String adminOut(ModelMap model) {
-        admin = false;
-
         return "redirect:/";
+    }
+
+// log In - log Out
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String loginPage(Model model){
+        return "loginning";
+    }
+
+    @RequestMapping(value = "/sc-logout", method = RequestMethod.GET)
+    public String logoutPage(Model model){
+        curUser = null;
+        model.addAttribute("topGoods", carService.getTopPosition());
+        model.addAttribute("mess", "Вы успешно разлогинились");
+        return "index";
+    }
+
+    @RequestMapping(value = "/wronglg", method = RequestMethod.GET)
+    public String wrongLoginPage(Model model){
+        model.addAttribute("mess", "Неправильный e-mail или пароль");
+        return "loginning";
+    }
+
+    private String getPrincipal(){
+        String userName;
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        if (principal instanceof UserDetails) {
+            userName = ((UserDetails)principal).getUsername();
+        } else {
+            userName = principal.toString();
+        }
+
+        return userName;
     }
 }

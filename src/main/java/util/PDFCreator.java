@@ -15,9 +15,9 @@ public class PDFCreator {
         static int FONT_SIZE_SMALL = 16;
         static int FONT_SIZE_BIG = 32;
 
-        public static void main(String[] args) throws Exception {
-            createTemplate(new Car(0, 2015, 6200, 55222, 99999, "audi", "a4", "Auto", "gray", "sedan", "diesel", "used", "105a.jpg", "img2", "img3", true, true, false), "Sergey");
-        }
+//        public static void main(String[] args) throws Exception {
+//            createTemplate(new Car(0, 2015, 6200, 55222, 99999, "audi", "a4", "Auto", "gray", "sedan", "diesel", "used", "105a.jpg", "img2", "img3", true, true, false), "Sergey");
+//        }
 
         public static void createTemplate(Car car, String userName) throws Exception {
             Document document = new Document(PageSize.A4, 20, 10, 10, 10);
@@ -28,7 +28,7 @@ public class PDFCreator {
                     FONT_SIZE_SMALL, Font.ITALIC | Font.UNDERLINE);
 
             PdfWriter.getInstance(document,
-                    new FileOutputStream("carshop/pdf/"+ car.getId() + ".pdf"));
+                    new FileOutputStream(car.getId() + ".pdf"));
 
             document.open();
 
@@ -44,8 +44,9 @@ public class PDFCreator {
 //            String imageUrl = "pages/img/" + car.getImg1();
 //            stamp = Image.getInstance(new URL(imageUrl));
             //картинка с файловой системы
-            stamp = Image.getInstance("carshop/images/car/" + car.getImg1());
+            stamp = Image.getInstance("107a.jpg"); //"carshop/images/car/" + car.getImg1()
             stamp.setAlignment(Element.ALIGN_CENTER);
+            stamp.scaleAbsolute(400f, 300f);
             stamp.setSpacingAfter(15);
 
             document.add(stamp);

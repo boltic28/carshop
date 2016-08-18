@@ -4,8 +4,8 @@
     <data-source name="MySQL - db_motor@localhost" uuid="9eaf4ebd-ebbf-4606-8e5c-f019cf53e83d">
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
-      <schema-pattern>db_motor.*</schema-pattern>
-      <default-schemas>db_motor.*</default-schemas>
+      <introspection-scope>db_motor:*</introspection-scope>
+      <resolve-scope>db_motor:*</resolve-scope>
     </data-source>
   </component>
 </project>

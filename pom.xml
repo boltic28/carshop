@@ -43,7 +43,7 @@
         <!-- Web -->
         <spring.version>4.2.5.RELEASE</spring.version>
         <spring-boot.version>1.1.8.RELEASE</spring-boot.version>
-        <spring-security.version>4.0.4.RELEASE</spring-security.version>
+        <spring-security.version>4.1.1.RELEASE</spring-security.version>
 
         <tomcat.version>8.0.9</tomcat.version>
         <javax.servlet>3.0.1</javax.servlet>
@@ -82,6 +82,23 @@
             <version>${spring.version}</version>
             <type>jar</type>
             <scope>compile</scope>
+        </dependency>
+
+        <!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring-security.version}</version>
         </dependency>
 
         <!-- Servlet Spec -->
