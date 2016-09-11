@@ -15,6 +15,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import service.car.CarServiceImpl;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 /**
  * Created by Siarhei Baltrukevich on 26.06.2016.
@@ -74,12 +75,12 @@ public class CarServiceImplTest {
 
     @Test
     public void testSave() throws Exception {
-        service.saveOrUpdate(new Car(0, 2015, 6200, 55222, 99999, "audi", "a4", "Auto", "gray", "sedan", "diesel", "used", "img1", "img2", "img3", true, true, false));
+        service.saveOrUpdate(new Car(0, 2015, 6200, 55222, 99999, "audi", "a4", "Auto", "gray", "sedan", "diesel", "used", "img1", "img2", "img3", true, true, false, new Date()));
     }
 
     @Test
     public void testUpdate() throws Exception {
-        service.saveOrUpdate(new Car(104, 2015, 6200, 55222, 99999, "audi", "a4", "Auto", "gray", "sedan", "diesel", "was update", "img1", "img2", "img3", true, true, false));
+        service.saveOrUpdate(new Car(104, 2015, 6200, 55222, 99999, "audi", "a4", "Auto", "gray", "sedan", "diesel", "was update", "img1", "img2", "img3", true, true, false, new Date()));
     }
 
     @Test

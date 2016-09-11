@@ -43,6 +43,10 @@
 
 
 </table>
+
+<div class="new-user">
+    <a href="basket/sendmail" class="btn btn-success btn-md" >Сформировать и отправить заказ </a>
+</div>
 </body>
 
 <jsp:include page="elements/footer.jsp"/>

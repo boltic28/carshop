@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Date;
+
 /**
  * Created by Siarhei Baltrukevich on 26.06.2016.
  */
@@ -8,13 +10,14 @@ public class Car {
     private String brand, model, transmition, color, frame, engine, agregate;
     private String img1, img2, img3;
     private boolean conditioner, skin, castDisk;
+    private Date added;
 
     public Car() {
     }
 
     public Car(int id, int year, int price, int odo, int view, String brand, String model, String transmition,
                String color, String frame, String engine, String agregate, String img1, String img2, String img3,
-               boolean conditioner, boolean skin, boolean castDisk) {
+               boolean conditioner, boolean skin, boolean castDisk, Date added) {
         this.id = id;
         this.year = year;
         this.price = price;
@@ -33,6 +36,7 @@ public class Car {
         this.conditioner = conditioner;
         this.skin = skin;
         this.castDisk = castDisk;
+        this.added = added;
     }
 
     public int getId() {
@@ -177,6 +181,14 @@ public class Car {
 
     public void setCastDisk(boolean castDisk) {
         this.castDisk = castDisk;
+    }
+
+    public Date getAdded() {
+        return added;
+    }
+
+    public void setAdded(Date added) {
+        this.added = added;
     }
 
     @Override

@@ -18,6 +18,7 @@ import service.car.CarService;
 import service.user.UserDetailsServiceImpl;
 import service.user.UserService;
 import util.ExcelReader;
+import util.MailSender;
 import util.PDFCreator;
 
 import javax.validation.Valid;
@@ -126,7 +127,7 @@ public class ShopController {
         return file;
     }
 
-//from basket work
+//for basket work
     @RequestMapping(value = "/basket", method = RequestMethod.GET)
     public String home(ModelMap model) {
         model.addAttribute("curUser", curUser);
@@ -202,6 +203,25 @@ public class ShopController {
         return "basket";
     }
 
+    @RequestMapping(value = "/basket/sendmail", method = RequestMethod.GET)
+    public String sendMailWithList(ModelMap model) {
+
+        List total = carService.getAllForUser(curUser.getId());
+        model.addAttribute("goodsList", total);
+        model.addAttribute("total", userService.getTotalCost(curUser.getId()));
+        model.addAttribute("totGoods", total.size());
+
+        MailSender sender = new MailSender("boltic28@gmail.com", "Boltrukevi43");
+        sender.send("New order!", total, curUser, "boltrukevichsiarhei@gmail.com");
+
+        model.addAttribute("curUser", curUser);
+        model.addAttribute("message", "Ваш заказ отправлен, с Вами обязательно свяжутся");
+
+
+        return "basket";
+    }
+
+
     @RequestMapping(value = "/comparsion", method = RequestMethod.GET)
     public String comparsion(ModelMap model) {
         model.addAttribute("curUser", curUser);
@@ -274,17 +294,22 @@ public class ShopController {
             try {
                 byte[] bytes = img1.getBytes();
                 BufferedOutputStream stream =
-                        new BufferedOutputStream(new FileOutputStream(new File("/pages/img/" + car.getId() + "a.jpg")));
+                        new BufferedOutputStream(new FileOutputStream(new File(car.getId() + "a.jpg"))); //"/pages/img/" +
                 stream.write(bytes);
                 stream.close();
                 car.setImg1(car.getId() + "a.jpg");
-                mess = "Вы удачно загрузили " + img1.getName() + " в " + car.getId() + "a";
+                mess = "Вы удачно загрузили фото " + img1.getName() + " в " + car.getId() + "a";
             } catch (Exception e) {
-                mess = "Вам не удалось загрузить " + img1.getName() + " => " + e.getMessage();
+                mess = "Вам не удалось загрузить фото" + img1.getName() + " => " + e.getMessage();
             }
         } else {
-            mess = "Вам не удалось загрузить файл, потому что он пустой.";
+            mess = "Вам не удалось загрузить фото, возможно Вы не указали файл для загрузки";
         }
+        /*
+
+        http://localhost:8081/pages/img/109a.jpg
+        http://localhost:8081/pages/img/0a.jpg
+        */
 
         carService.saveOrUpdate(car);
         model.addAttribute("carList", carService.getAll());

@@ -7,6 +7,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
 import java.io.*;
+import java.util.Date;
 
 /**
  * Created by Siarhei Baltrukevich on 12.07.2016.
@@ -42,6 +43,6 @@ public class ExcelReader{
         }
 
         return new Car(0, Integer.parseInt(resultArr[11]), Integer.parseInt(resultArr[13]), Integer.parseInt(resultArr[15]), 0, resultArr[1], resultArr[3], resultArr[5], resultArr[7],
-                resultArr[17], resultArr[9], resultArr[19], resultArr[27], resultArr[29], resultArr[31], resultArr[23].equals("1"), resultArr[21].equals("1"), resultArr[25].equals("1"));
+                resultArr[17], resultArr[9], resultArr[19], resultArr[27], resultArr[29], resultArr[31], resultArr[23].equals("1"), resultArr[21].equals("1"), resultArr[25].equals("1"), new Date());
     }
 }

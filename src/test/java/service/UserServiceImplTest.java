@@ -60,12 +60,12 @@ public class UserServiceImplTest {
 
     @Test
     public void testSave() throws Exception {
-            service.saveOrUpdate(new User(0, "testUserSave", "testmail@mail.ru", "delete", "user"));
+            service.saveOrUpdate(new User(0, "testUserSave", "testmail@mail.ru", "delete", "user",new Date()));
     }
 
     @Test
     public void testUpdate() throws Exception {
-        service.saveOrUpdate(new User(104, "testUserWasUpd", "testmail@mail.ru", "delete" , "user"));
+        service.saveOrUpdate(new User(104, "testUserWasUpd", "testmail@mail.ru", "delete" , "user",new Date()));
     }
 
     @Test

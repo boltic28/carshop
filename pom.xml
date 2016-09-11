@@ -50,7 +50,7 @@
 
         <!--DB-->
         <mysql.version>5.1.39</mysql.version>
-
+        <postgresql.version>9.4.1208</postgresql.version>
         <!-- Hibernate -->
         <hibernate.version>5.1.0.Final</hibernate.version>
         <hibernate-validator.version>5.2.4.Final</hibernate-validator.version>
@@ -140,6 +140,13 @@
             <version>${mysql.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4-1206-jdbc42</version>
+        </dependency>
+
+
         <!--Testing-->
         <dependency>
             <groupId>junit</groupId>
@@ -172,6 +179,23 @@
             <groupId>com.itextpdf</groupId>
             <artifactId>itextpdf</artifactId>
             <version>5.5.9</version>
+        </dependency>
+
+        <!--Mail from site-->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>javax.mail</groupId>-->
+            <!--<artifactId>javax.mail-api</artifactId>-->
+            <!--<version>1.5.5</version>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>smtp</artifactId>
+            <version>1.5.4</version>
         </dependency>
     </dependencies>
 </project>

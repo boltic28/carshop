@@ -1,21 +1,25 @@
 package models;
 
 
+import java.util.Date;
+
 /**
  * Created by NotePad on 23.06.2016.
  */
 public class User {
     private int id;
     private String name, email, password, role;
+    private Date registered;
     public User() {
     }
 
-    public User(int id, String name, String email, String password, String role) {
+    public User(int id, String name, String email, String password, String role, Date registered) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.role = role;
+        this.registered = registered;
     }
 
     public int getId() {
@@ -56,6 +60,14 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Date getRegistered() {
+        return registered;
+    }
+
+    public void setRegistered(Date registered) {
+        this.registered = registered;
     }
 
     @Override

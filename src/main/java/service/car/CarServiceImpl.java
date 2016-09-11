@@ -24,6 +24,7 @@ public class CarServiceImpl implements CarService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+
     @Override
     public List<Car> getAll() {
         String sql = "SELECT * FROM cars";
@@ -157,6 +158,8 @@ public class CarServiceImpl implements CarService {
         car.setImg1(rs.getString("img1"));
         car.setImg2(rs.getString("img2"));
         car.setImg3(rs.getString("img3"));
+
+        car.setAdded(rs.getDate("added"));
 
         car.setConditioner(rs.getBoolean("aircondition"));
         car.setSkin(rs.getBoolean("skin"));

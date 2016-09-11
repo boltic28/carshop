@@ -34,57 +34,13 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
-//    @Autowired
-//    private DataSource dataSource;
-
     @Autowired
     public void registerGlobalAuthentication(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService);
     }
 
-//    @Autowired
-//    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.jdbcAuthentication().dataSource(dataSource)
-//                .usersByUsernameQuery(
-//                        "select email,password from users where email=?")
-//                .authoritiesByUsernameQuery(
-//                        "select role from users where email=?");
-//    }
-
-//    @Autowired
-//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//        auth
-//                .inMemoryAuthentication()
-//                .withUser("admin@admin.tut").password("admin").roles("ADMIN");
-//    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-//        http.
-//                authorizeRequests()
-//                    .antMatchers("/**").permitAll()
-//                    .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
-//                    .anyRequest().authenticated()
-//                .and()
-//                    .formLogin()
-//                    .loginPage("/login")
-//                    .loginProcessingUrl("/j_spring_security_check")
-//                    .usernameParameter("j_username")
-//                    .passwordParameter("j_password")
-//                    .permitAll()
-//                .and()
-//                    .logout()
-//                    .permitAll()
-//                    .logoutUrl("/logout")
-//                    .logoutSuccessUrl("/sc-logout")
-//                    .invalidateHttpSession(true)
-//                .and()
-//                    .csrf().disable()
-//                    .exceptionHandling()
-//                    .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/login"));
-
-        // включаем защиту от CSRF атак
         http.csrf()
                 .disable()
                 // указываем правила запросов
