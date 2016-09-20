@@ -78,6 +78,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
+                ", registered='" + registered.toString() + '\'' +
                 '}';
     }
 }

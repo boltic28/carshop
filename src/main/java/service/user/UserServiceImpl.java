@@ -1,5 +1,6 @@
 package service.user;
 
+import models.Car;
 import models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -7,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
+import service.car.CarServiceImpl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,6 +22,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    private CarServiceImpl carService;
 
     public void saveOrUpdate(User user) {
         if (user.getId() > 0) {
@@ -35,7 +40,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public void delete(int userId) {
-        jdbcTemplate.update("DELETE FROM users_has_cars WHERE users_id=" + userId);
+        jdbcTemplate.update("DELETE FROM user_has_cars WHERE user_id=" + userId);
         jdbcTemplate.update("DELETE FROM users WHERE id=" + userId);
     }
 
@@ -58,7 +63,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public User getByEmail(String email) {
-        String sql = "SELECT * FROM users WHERE email=\"" + email + "\"";
+        String sql = "SELECT * FROM users WHERE email='" + email + "'";
         return jdbcTemplate.query(sql, new ResultSetExtractor<User>() {
 
             @Override
@@ -76,7 +81,7 @@ public class UserServiceImpl implements UserService {
 
     public User getByName(String name) {
         try {
-            String sql = "SELECT * FROM users WHERE login=\"" + name + "\"";
+            String sql = "SELECT * FROM users WHERE login='" + name + "'";
             return jdbcTemplate.query(sql, new ResultSetExtractor<User>() {
 
                 @Override
@@ -127,8 +132,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int getTotalCost(int userId) {
-        return 5200;// need getting summ of all goods in basket
+    public int getTotalCostForUsersGoods(int userId) {
+        return carService.getTotalCostForUser(userId);
     }
 
     private User getUserFromRs(ResultSet rs) throws SQLException,
@@ -140,6 +145,7 @@ public class UserServiceImpl implements UserService {
         user.setEmail(rs.getString("email"));
         user.setPassword(rs.getString("password"));
         user.setRole(rs.getString("role"));
+        user.setRegistered(rs.getDate("registered"));
 
         return user;
     }

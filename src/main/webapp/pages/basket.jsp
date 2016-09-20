@@ -13,7 +13,7 @@
 <jsp:include page="elements/navHead.jsp"/>
 
 <section class="main_section item">
-    <h2>Ваша корзина (${totGoods} товаров)</h2> <!--на сумму $${total}-->
+    <h2>Ваша корзина (${totGoods} товаров)</h2> на сумму $${total}
     <hr>
 </section>
 

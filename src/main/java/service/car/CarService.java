@@ -11,6 +11,7 @@ import java.util.Map;
 public interface CarService {
     List<Car> getAll();
     List<Car> getAllForUser(int userId);
+    Integer getTotalCostForUser(int userId);
     List<Car> getTopPosition();
 
     Car getOne(int id);

@@ -44,28 +44,28 @@ public class UserServiceImplTest {
         template.update(sql, 104, "testUserForUpd", "testmail104@mail.ru", "delete");
 
         String sql1 = "INSERT INTO cars (id, brand, model, transmition, color, engine, year, price, odo, view, frame, " +
-                "agregate, skin, aircondition, castdisk, img1)"
-                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        template.update(sql1, 102, "audi", "a4", "Auto", "gray", "diesel", 2014, 5400, 45000, 99999, "sedan", "used", 1, 1, 1, "for delete");
+                "agregate, skin, aircondition, castdisk, img1, img2, img3)"
+                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        template.update(sql1, 102, "audi", "a4", "Auto", "gray", "diesel", 2014, 5400, 45000, 99999, "sedan", "used", 1, 1, 1, "for delete","for delete","for delete");
 
-        template.update("INSERT INTO users_has_cars (users_id, cars_id) VALUES (102, 102)");
+        template.update("INSERT INTO user_has_cars (user_id, car_id) VALUES (102, 102)");
     }
 
     @After
     public void setOut() throws Exception{
-        template.update("DELETE FROM users_has_cars WHERE cars_id=102");
+        template.update("DELETE FROM user_has_cars WHERE car_id=102");
         template.update("DELETE FROM users WHERE password=?", "delete");
         template.update("DELETE FROM cars WHERE view=99999");
     }
 
     @Test
     public void testSave() throws Exception {
-            service.saveOrUpdate(new User(0, "testUserSave", "testmail@mail.ru", "delete", "user",new Date()));
+            service.saveOrUpdate(new User(0, "testUserSave", "testmail@mail.ru", "delete", "user", new Date()));
     }
 
     @Test
     public void testUpdate() throws Exception {
-        service.saveOrUpdate(new User(104, "testUserWasUpd", "testmail@mail.ru", "delete" , "user",new Date()));
+        service.saveOrUpdate(new User(104, "testUserWasUpd", "testmail@mail.ru", "delete" , "user", new Date()));
     }
 
     @Test
@@ -80,7 +80,12 @@ public class UserServiceImplTest {
 
     @Test
     public void testGetByEmail() throws Exception {
-        service.getByEmail("email@mail.ru");
+        service.getByEmail("testmail103@mail.ru");
+    }
+
+    @Test
+    public void testGetByName() throws Exception {
+        service.getByName("testUserForGet");
     }
 
     @Test
@@ -101,5 +106,10 @@ public class UserServiceImplTest {
     @Test
     public void testAddToBasket() throws Exception {
         service.addToBasket(104, 102);
+    }
+
+    @Test
+    public void testGetTotalCost() throws Exception {
+        service.getTotalCostForUsersGoods(102);
     }
 }

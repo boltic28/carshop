@@ -1,11 +1,17 @@
 package config;
 
 
+import org.hibernate.ejb.HibernatePersistence;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.MultipartConfigFactory;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.Database;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -19,11 +25,10 @@ import service.user.UserDetailsServiceImpl;
 import javax.annotation.Resource;
 import javax.servlet.MultipartConfigElement;
 import javax.sql.DataSource;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 
 @Configuration
@@ -34,7 +39,7 @@ import java.sql.SQLException;
 @Import({ AppSecurityConfig.class })
 public class ShopConfig extends WebMvcConfigurerAdapter {
 
-// DataBase configure
+    // DataBase configure
     private static final String PROP_DATABASE_DRIVER = "db.driver";
     private static final String PROP_DATABASE_URL = "db.url";
     private static final String PROP_DATABASE_USERNAME = "db.username";
@@ -47,7 +52,7 @@ public class ShopConfig extends WebMvcConfigurerAdapter {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver"); // хз почему, но работает только напрямую.
+        dataSource.setDriverClassName("org.postgresql.Driver"); // хз почему, но работает только напрямую.
         dataSource.setUrl(env.getRequiredProperty(PROP_DATABASE_URL));
         dataSource.setUsername(env.getRequiredProperty(PROP_DATABASE_USERNAME));
         dataSource.setPassword(env.getRequiredProperty(PROP_DATABASE_PASSWORD));
@@ -59,11 +64,6 @@ public class ShopConfig extends WebMvcConfigurerAdapter {
         return new JdbcTemplate(dataSource());
     }
 
-    //for postgreSQl only
-    @Bean
-    public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(PROP_DATABASE_URL, PROP_DATABASE_USERNAME, PROP_DATABASE_PASSWORD);
-    }
 //----------------------------------------------------------------
 //    MVC Config
 

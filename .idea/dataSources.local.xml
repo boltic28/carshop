@@ -9,9 +9,9 @@
     </data-source>
     <data-source name="Heroku" uuid="35876ce9-00c4-482f-a5dc-77fd69ddf415">
       <secret-storage>master_key</secret-storage>
-      <user-name>fooghcwbbsklki</user-name>
-      <introspection-scope>ddibh6pd26is20:public,pg_catalog,fooghcwbbsklki</introspection-scope>
-      <resolve-scope>ddibh6pd26is20:public,fooghcwbbsklki</resolve-scope>
+      <user-name>mvwtqtorwnidyp</user-name>
+      <introspection-scope>ddibh6pd26is20:fooghcwbbsklki,pg_catalog,public</introspection-scope>
+      <resolve-scope>ddibh6pd26is20:fooghcwbbsklki,public</resolve-scope>
     </data-source>
   </component>
 </project>

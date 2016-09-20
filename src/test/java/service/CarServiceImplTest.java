@@ -36,15 +36,15 @@ public class CarServiceImplTest {
     @Before
     public void setUp() throws Exception {
         String sql = "INSERT INTO cars (id, brand, model, transmition, color, engine, year, price, odo, view, frame, " +
-                "agregate, skin, aircondition, castdisk, img1)"
-                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        template.update(sql, 102, "audi", "a4", "Auto", "gray", "diesel", 2014, 5400, 45000, 99999, "sedan", "used", 1, 1, 1, "for delete");
-        template.update(sql, 103, "audi", "a6", "Auto", "gray", "diesel", 2014, 5400, 45000, 99999, "sedan", "used", 1, 1, 1, "for update");
-        template.update(sql, 104, "audi", "a8", "Auto", "gray", "diesel", 2014, 5400, 45000, 99999, "sedan", "used", 1, 1, 1, "for get");
+                "agregate, skin, aircondition, castdisk, img1, img2, img3 )"
+                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        template.update(sql, 102, "audi", "a4", "Auto", "gray", "diesel", 2014, 1000, 45000, 99999, "sedan", "used", 1, 1, 1, "for delete", "for delete", "for delete");
+        template.update(sql, 103, "audi", "a6", "Auto", "gray", "diesel", 2014, 2000, 45000, 99999, "sedan", "used", 1, 1, 1, "for update", "for delete", "for delete");
+        template.update(sql, 104, "audi", "a8", "Auto", "gray", "diesel", 2014, 3000, 45000, 99999, "sedan", "used", 1, 1, 1, "for get", "for delete", "for delete");
 
         template.update("INSERT INTO users (id, login, password, email) VALUES (99999, 'login', 'testpass', 'test@mail.ru')");
 
-        String sql1 = "INSERT INTO users_has_cars (users_id, cars_id) VALUES (?, ?)";
+        String sql1 = "INSERT INTO user_has_cars (user_id, car_id) VALUES (?, ?)";
         template.update(sql1, 99999, 102);
         template.update(sql1, 99999, 103);
         template.update(sql1, 99999, 104);
@@ -52,7 +52,7 @@ public class CarServiceImplTest {
 
     @After
     public void tearDown() throws Exception {
-        template.update("DELETE FROM users_has_cars WHERE users_id=99999");
+        template.update("DELETE FROM user_has_cars WHERE user_id=99999");
         template.update("DELETE FROM cars WHERE view=99999");
         template.update("DELETE FROM users WHERE id=99999");
 
@@ -92,4 +92,11 @@ public class CarServiceImplTest {
     public void testGetModelsForBrand(){
         service.getModelsForBrands();
     }
+
+    @Test
+    public void testGetTotalCostForUser(){
+        service.getTotalCostForUser(99999);
+    }
+
+
 }

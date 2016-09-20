@@ -40,7 +40,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void addToBasket(int carId, int userId) {
-        String sql = "INSERT INTO user_has_cars (user_id, car_id) VALUE (?, ?)";
+        String sql = "INSERT INTO user_has_cars (user_id, car_id) VALUES (?, ?)";
         jdbcTemplate.update(sql, userId, carId);
     }
 
@@ -61,6 +61,14 @@ public class CarServiceImpl implements CarService {
         }catch (Exception e){
             return null;
         }
+    }
+
+    @Override
+    public Integer getTotalCostForUser(int userId){
+     return getAllForUser(userId)
+             .stream()
+             .mapToInt(Car::getPrice)
+             .sum() ;
     }
 
     @Override

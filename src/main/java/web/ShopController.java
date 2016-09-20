@@ -3,7 +3,6 @@ package web;
 import models.Car;
 import models.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -13,9 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 import service.car.CarService;
-import service.user.UserDetailsServiceImpl;
 import service.user.UserService;
 import util.ExcelReader;
 import util.MailSender;
@@ -42,7 +39,6 @@ public class ShopController {
     private CarService carService;
 
     private User curUser;
-    private boolean admin;
 
     @RequestMapping(method = RequestMethod.GET)
     public String root(ModelMap model) {
@@ -50,6 +46,39 @@ public class ShopController {
         model.addAttribute("curUser", curUser);
         model.addAttribute("topGoods", carService.getTopPosition());
         return "index";
+    }
+
+    // log In - log Out
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String loginPage(Model model){
+        return "loginning";
+    }
+
+    @RequestMapping(value = "/sc-logout", method = RequestMethod.GET)
+    public String logoutPage(Model model){
+        curUser = null;
+        model.addAttribute("topGoods", carService.getTopPosition());
+        model.addAttribute("mess", "Вы успешно разлогинились");
+        return "index";
+    }
+
+    @RequestMapping(value = "/wronglg", method = RequestMethod.GET)
+    public String wrongLoginPage(Model model){
+        model.addAttribute("mess", "Неправильный e-mail или пароль");
+        return "loginning";
+    }
+
+    private String getPrincipal(){
+        String userName;
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        if (principal instanceof UserDetails) {
+            userName = ((UserDetails)principal).getUsername();
+        } else {
+            userName = principal.toString();
+        }
+
+        return userName;
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -134,7 +163,7 @@ public class ShopController {
 
         List total = carService.getAllForUser(curUser.getId());
         model.addAttribute("goodsList", total);
-        model.addAttribute("total", userService.getTotalCost(curUser.getId()));
+        model.addAttribute("total", userService.getTotalCostForUsersGoods(curUser.getId()));
         model.addAttribute("totGoods", total == null ? 0 : total.size());
         return "basket";
     }
@@ -168,7 +197,7 @@ public class ShopController {
 
         List total = carService.getAllForUser(curUser.getId());
         model.addAttribute("goodsList", total);
-        model.addAttribute("total", userService.getTotalCost(curUser.getId()));
+        model.addAttribute("total", userService.getTotalCostForUsersGoods(curUser.getId()));
         model.addAttribute("totGoods", total.size());
 
         return "basket";
@@ -181,7 +210,7 @@ public class ShopController {
 
         List total = carService.getAllForUser(curUser.getId());
         model.addAttribute("goodsList", total);
-        model.addAttribute("total", userService.getTotalCost(curUser.getId()));
+        model.addAttribute("total", userService.getTotalCostForUsersGoods(curUser.getId()));
         model.addAttribute("totGoods", total.size());
         return "basket";
     }
@@ -198,7 +227,7 @@ public class ShopController {
         }
         List total = carService.getAllForUser(curUser.getId());
         model.addAttribute("goodsList", total);
-        model.addAttribute("total", userService.getTotalCost(curUser.getId()));
+        model.addAttribute("total", userService.getTotalCostForUsersGoods(curUser.getId()));
         model.addAttribute("totGoods", total.size());
         return "basket";
     }
@@ -208,7 +237,7 @@ public class ShopController {
 
         List total = carService.getAllForUser(curUser.getId());
         model.addAttribute("goodsList", total);
-        model.addAttribute("total", userService.getTotalCost(curUser.getId()));
+        model.addAttribute("total", userService.getTotalCostForUsersGoods(curUser.getId()));
         model.addAttribute("totGoods", total.size());
 
         MailSender sender = new MailSender("boltic28@gmail.com", "Boltrukevi43");
@@ -232,7 +261,6 @@ public class ShopController {
     }
 
     // admin for users------------------------------------------------------------------------------
-//    @Secured("ROLE_ADMIN")
     @RequestMapping(value = {"/admin","/admin/user"}, method = RequestMethod.GET)
     public String admin(ModelMap model) {
 
@@ -242,7 +270,6 @@ public class ShopController {
         return "admin/adminUser";
     }
 
-//    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/register/admin", method = RequestMethod.POST)
     public String saveRegisterFromAdmin(@Valid User user, BindingResult result, SessionStatus status, ModelMap model) {
         if (result.hasErrors()) {
@@ -255,7 +282,6 @@ public class ShopController {
         }
     }
 
-//    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/admin/user/{userId}/del", method = RequestMethod.GET)
     public String adminUserDel(ModelMap model, @PathVariable("userId") int id) {
 
@@ -266,7 +292,6 @@ public class ShopController {
     }
 
     // admin for cars
-//    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/admin/car", method = RequestMethod.GET)
     public String adminCars(ModelMap model) {
         model.addAttribute("carList", carService.getAll());
@@ -274,7 +299,6 @@ public class ShopController {
         return "admin/adminCar";
     }
 
-//    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/admin/car/{carId}/del", method = RequestMethod.GET)
     public String adminCarDel(ModelMap model, @PathVariable("carId") int id) {
         carService.delete(id);
@@ -283,7 +307,6 @@ public class ShopController {
         return "admin/adminCar";
     }
 
-//    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/admin/car/add", method = RequestMethod.POST)
     public String adminCarAdd(@Valid Car car, BindingResult result, SessionStatus status, ModelMap model,
                               @RequestParam(value = "img1f", required = false) MultipartFile img1,
@@ -318,7 +341,6 @@ public class ShopController {
         return "admin/adminCar";
     }
 
-//    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/admin/car/add-excel", method = RequestMethod.POST)
     public String adminCarAddWithExcel(ModelMap model, @RequestParam(value = "file", required = false) MultipartFile file,
                                        @RequestParam(value = "name", required = false) String name) {
@@ -341,48 +363,15 @@ public class ShopController {
     }
 
     // admin for motos
-    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/admin/moto", method = RequestMethod.GET)
     public String adminMotos(ModelMap model) {
             return "admin/adminMoto";
     }
 
-    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/admin/out", method = RequestMethod.GET)
     public String adminOut(ModelMap model) {
         return "redirect:/";
     }
 
-// log In - log Out
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginPage(Model model){
-        return "loginning";
-    }
 
-    @RequestMapping(value = "/sc-logout", method = RequestMethod.GET)
-    public String logoutPage(Model model){
-        curUser = null;
-        model.addAttribute("topGoods", carService.getTopPosition());
-        model.addAttribute("mess", "Вы успешно разлогинились");
-        return "index";
-    }
-
-    @RequestMapping(value = "/wronglg", method = RequestMethod.GET)
-    public String wrongLoginPage(Model model){
-        model.addAttribute("mess", "Неправильный e-mail или пароль");
-        return "loginning";
-    }
-
-    private String getPrincipal(){
-        String userName;
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        if (principal instanceof UserDetails) {
-            userName = ((UserDetails)principal).getUsername();
-        } else {
-            userName = principal.toString();
-        }
-
-        return userName;
-    }
 }

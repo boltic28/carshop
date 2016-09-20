@@ -19,5 +19,5 @@ public interface UserService {
     void addToBasket(int userId, int carId);
     void delFromBasket(int userId, int carId);
     void delAllFromBasket(int userId);
-    int getTotalCost(int userId);
+    int getTotalCostForUsersGoods(int userId);
 }
