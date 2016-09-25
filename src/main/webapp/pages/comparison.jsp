@@ -12,10 +12,21 @@
 
 <jsp:include page="elements/navHead.jsp"/>
 
-<section class="main_section item">
-    <h2>Сравнение товаров</h2> <!--на сумму $${total}-->
+<c:if test="${compareList.size() == 0}">
+
+<section class="head_block item">
+    <h2>Сравнение товаров</h2> В корзине нет товаров для сравнения.
     <hr>
 </section>
+
+</c:if>
+
+<c:if test="${compareList.size() == 0}">
+
+    <section class="head_block item">
+    <h2>Сравнение товаров</h2>
+    <hr>
+    </section>
 
 <table class="table display" id="comparisonTable">
 
@@ -24,7 +35,7 @@
         <th></th>
             <c:forEach items="${compareList}" var="car">
                 <jsp:useBean id="car" scope="page" type="models.Car"/>
-        <th><img class="comparison_img" src="${pageContext.request.contextPath}/pages/img/${car.img1}"</th>
+        <th><img class="comparison_img" src="${pageContext.request.contextPath}/pages/img/${car.img1}"></th>
             </c:forEach>
         <th></th>
     </tr>
@@ -150,6 +161,7 @@
 
 
 </table>
+</c:if>
 </body>
 
 <jsp:include page="elements/footer.jsp"/>

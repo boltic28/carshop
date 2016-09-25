@@ -12,7 +12,7 @@
 <jsp:include page="elements/navHead.jsp"/>
 <jsp:include page="elements/news.jsp"/>
 
-<section class="main_section">
+<section class="head_block">
     <h2>Авто в наличии</h2>
     <hr>
 </section>

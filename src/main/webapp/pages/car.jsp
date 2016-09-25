@@ -13,7 +13,7 @@
 <body>
     <jsp:include page="elements/navHead.jsp"/>
 
-    <section class="main_section item">
+    <section class="head_block item">
         <h2> ${car.brand} ${car.model},  ${car.year} года.   </h2>
         <hr>
     </section>
@@ -23,7 +23,8 @@
         <div class="row">
 
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 common_car main_car">
-                <img src="${pageContext.request.contextPath}/pages/img/${car.img1}">
+                <%--<img src="${pageContext.request.contextPath}/pages/img/${car.img1}">--%>
+                <img src="${car.img1}">
             </div>
 
             <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 common_car descr_car">

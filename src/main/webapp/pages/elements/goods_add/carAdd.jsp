@@ -16,8 +16,6 @@
                     <input type="hidden" id="id" name="id">
                     <input type="hidden" id="view" name="view">
 
-                    <%--<input type="hidden" id="registered" name="registered">--%>
-
                     <div class="form-group">
                         <label for="brand" class="control-label col-xs-3">Марка</label>
 
@@ -161,52 +159,8 @@
 
                     <div class="form-group">
                         <hr>
-                        <label for="img1" class="control-label col-xs-3">Имя 1</label>
-
-                        <div class="col-xs-9">
-                            <input type="text" class="form-control" id="img1" name="img1">
-                        </div>
-                        <label for="img1f" class="control-label col-xs-3">Фото 1</label>
-
-                        <div class="col-xs-9">
-                            <input type="file" class="form-control" id="img1f" name="img1f">
-                        </div>
-
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="img2" class="control-label col-xs-3">Имя 2</label>
-
-                        <div class="col-xs-9">
-                            <input type="text" class="form-control" id="img2" name="img2">
-                        </div>
-                        <label for="img2f" class="control-label col-xs-3">фото 2</label>
-
-                        <div class="col-xs-9">
-                            <input type="file" class="form-control" id="img2f" name="img2f">
-                        </div>
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="img3" class="control-label col-xs-3">Имя 3</label>
-
-                        <div class="col-xs-9">
-                            <input type="text" class="form-control" id="img3" name="img3">
-                        </div>
-                        <label for="img3f" class="control-label col-xs-3">фото 3</label>
-
-                        <div class="col-xs-9">
-                            <input type="file" class="form-control" id="img3f" name="img3f">
-                        </div>
-
-                    </div>
-
-                    <div class="form-group">
-                        <hr>
                         <div class="col-xs-offset-3 col-xs-9">
-                            <button type="submit" class="btn btn-success">Сохранить</button> <!--onclick="user_create()"-->
+                            <button type="submit" class="btn btn-success">Сохранить</button>
                         </div>
                     </div>
                 </form:form>

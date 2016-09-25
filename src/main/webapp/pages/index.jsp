@@ -13,9 +13,12 @@
     <jsp:include page="elements/news.jsp"/>
 
 
+    <section class="head_block">
+            <h2>Авто.Популярные товары.</h2>
+            <hr>
+    </section>
+
     <section class="main_section">
-        <h2>Авто.Популярные товары.</h2>
-        <hr>
         <div class="row">
             <c:forEach items="${topGoods}" var="car">
                 <jsp:useBean id="car" scope="page" type="models.Car"/>
@@ -27,6 +30,28 @@
                     <p>
                     <h4>${car.brand} ${car.model}</h4> ${car.year} г.в., ${car.odo}км
                     </p>
+                </div>
+            </c:forEach>
+
+        </div>
+    </section>
+
+    <section class="head_block">
+        <h2>Авто.Недавно добавленные товары.</h2>
+        <hr>
+    </section>
+
+    <section class="main_section">
+        <div class="row">
+            <c:forEach items="${lastGoods}" var="car">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 top_car">
+                    <p>
+                        <tspan>$${car.price}</tspan> ( <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> ${car.view} )
+                    </p>
+                    <a href="cars/${car.id}"><img src="${pageContext.request.contextPath}/pages/img/${car.img1}"></a>
+
+                    <h4>${car.brand} ${car.model}</h4>
+                    <p> ${car.year} г.в., ${car.odo}км</p>
                 </div>
             </c:forEach>
 

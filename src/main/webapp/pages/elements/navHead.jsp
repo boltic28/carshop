@@ -23,7 +23,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Витрины <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/cars">Авто</a></li>
-                        <li><a href="#">Мото</a></li>
+                        <li><a href="/moto">Мото</a></li>
                         <li><a href="#">Прицепы</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">Другое</a></li>
@@ -40,18 +40,18 @@
                 <c:set var="user" scope="page" value="${curUser}" />
 
                 <c:if test="${curUser.role == 'ROLE_ADMIN'}">
-                    <li class="entered_user">Вы вошли как ${curUser.name}</li>
-                    <li><a href="admin">Админка</a></li>
+                    <li class="entered_user">Администратор ${curUser.name}</li>
+                    <li><a href="admin">Управление</a></li>
                     <li><a href="/logout">Выйти</a></li>
                 </c:if>
 
                 <c:if test="${curUser.role == 'ROLE_USER'}">
-                        <li class="entered_user">Вы вошли как ${curUser.name}</li>
+                        <li class="entered_user">Пользователь ${curUser.name}</li>
                         <li><a href="/logout">Выйти</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Покупки<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/basket">Корзина</a></li>
+                                <li><a href="/basket">Корзина <b>${totGoods}</b></a></li>
                                 <li><a href="#">Популярные товары</a></li>
                                 <li><a href="/comparsion">Сравнить мои товары</a></li>
                                 <li role="separator" class="divider"></li>

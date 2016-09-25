@@ -20,15 +20,27 @@
 }
 /*top of the car*/
 .main_section{
-    padding-top: 5px;
-    background-color: yellowgreen;
-    /*margin-left: 20px;*/
-    /*margin-right: 20px;*/
+    background-color: lavender;
+    margin-bottom: 20px;
+    padding-top: 0px;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 10px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.5);
 }
+.head_block{
+    background-color: yellowgreen;
+    /*margin-left: -20px;*/
+    /*margin-right: -20px;*/
+    padding-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+}
+/*.row_section{*/
+    /*margin-left: 5px;*/
+    /*margin-right: 5px;*/
+/*}*/
 .foot{
     box-shadow: 0 -5px 10px rgba(0,0,0,0.5);
 }
@@ -37,7 +49,9 @@
 }
 
 .top_car{
+    width: 380px;
     padding: 10px;
+    margin: 5px;
 }
 .top_car span{
     color: black;
@@ -46,8 +60,8 @@
 }
 .top_car img{
     align-content: center;
-    width: 400px;
-    height: 230px;
+    width: 380px;
+    height: 207px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 .top_car tspan{

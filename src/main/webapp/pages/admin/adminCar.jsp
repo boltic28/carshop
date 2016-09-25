@@ -16,9 +16,9 @@
     <li role="presentation"><a href="/admin/out">Выйти</a></li>
 </ul>
 
-<section class="main_section">
+<section class="head_block">
     <h2>Работа с автомобилями</h2>
-    <p>${message} ${exception}</p>
+    <p>${mess} ${exception}</p>
     <hr>
 </section>
 
@@ -68,6 +68,7 @@
 
                     <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
                 <button class="btn btn-danger btn-sm car-del-btn"><a href="/admin/car/${car.id}/del"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a> </button>
+                <button class="btn btn-success btn-sm car-del-btn" onclick="add_photo('/admin/car/add/${car.id}/photos')"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> </button>
             </td>
         </tr>
     </c:forEach>
@@ -80,6 +81,7 @@
 </body>
 
 <jsp:include page="../elements/goods_add/carAdd.jsp"/>
+<jsp:include page="../elements/goods_add/carAddPhoto.jsp"/>
 <jsp:include page="../elements/goods_add/carFromExcel.jsp"/>
 <jsp:include page="../elements/footer.jsp"/>
 

@@ -13,6 +13,8 @@ public interface CarService {
     List<Car> getAllForUser(int userId);
     Integer getTotalCostForUser(int userId);
     List<Car> getTopPosition();
+    List<Car> getLastAddedPosition();
+
 
     Car getOne(int id);
     void saveOrUpdate(Car car);

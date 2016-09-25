@@ -1,6 +1,5 @@
 package service.user;
 
-import models.Car;
 import models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -30,12 +29,12 @@ public class UserServiceImpl implements UserService {
         if (user.getId() > 0) {
             String sql = "UPDATE users SET login=?, email=?, password=?, role=? WHERE id=?";
             jdbcTemplate.update(sql, user.getName(), user.getEmail(),
-                    user.getPassword(), "user", user.getId());
+                    user.getPassword(), user.getRole(), user.getId());
         } else {
             String sql = "INSERT INTO users (login, email, password, role)"
                     + " VALUES (?, ?, ?, ?)";
             jdbcTemplate.update(sql, user.getName(), user.getEmail(),
-                    user.getPassword(), "user");
+                    user.getPassword(), user.getRole());
         }
     }
 
@@ -131,9 +130,16 @@ public class UserServiceImpl implements UserService {
         jdbcTemplate.update(sql, userId);
     }
 
+    // need to change when add new category of good
     @Override
     public int getTotalCostForUsersGoods(int userId) {
         return carService.getTotalCostForUser(userId);
+    }
+
+    // need to change when add new category of good
+    @Override
+    public int getTotalCountForUsersGoods(int userId) {
+        return (int) carService.getAllForUser(userId).stream().count();
     }
 
     private User getUserFromRs(ResultSet rs) throws SQLException,

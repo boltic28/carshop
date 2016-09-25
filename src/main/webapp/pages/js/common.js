@@ -3,15 +3,29 @@
  */
 
 
-function add_user(act){
+function add_user(action){
     $('#login_window').hide();
     $('#editRowUser').modal();
     $('#editRowUser').find('#id').val(0);
     $('#editRowUser').find('#email').val('');
     $('#editRowUser').find('#password').val('');
-    $('#editRowUser').find('#detailsForm').attr("action",act);
-
+    $('#editRowUser').find('#detailsForm').attr("action",action);
+    $('#editRowUser').find('#role').val('ROLE_USER');
 }
+
+function set_user(id, name, email, password, role, registered, action){
+    document.getElementById("registered_since").innerHTML = registered;
+    // alert('Ну попытался');
+    $('#setRowUser').modal();
+    $('#setRowUser').find('#id').val(id);
+    $('#setRowUser').find('#name').val(name);
+    $('#setRowUser').find('#email').val(email);
+    $('#setRowUser').find('#password').val(password);
+    $('#setRowUser').find('#role').val(role);
+
+    $('#setRowUser').find('#detailsForm').attr("action",action);
+}
+
 
 function login(mail){
     if(mail != null){
@@ -23,6 +37,14 @@ function login(mail){
 
 function add_car(){
     $('#editRowCar').modal();
+    $('#editRowCar').find('#id').val(0);
+    $('#editRowCar').find('#view').val(0);
+    // $('#editRowCar').find('#added').val(new Date());
+}
+
+function add_photo(action) {
+    $('#addPhotoToCar').modal();
+    $('#addPhotoToCar').find('#carForm').attr("action",action);
 }
 
 function add_car_exc(){

@@ -22,6 +22,7 @@ import javax.validation.Valid;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,6 +46,7 @@ public class ShopController {
         curUser = userService.getByName(getPrincipal());
         model.addAttribute("curUser", curUser);
         model.addAttribute("topGoods", carService.getTopPosition());
+        model.addAttribute("lastGoods", carService.getLastAddedPosition());
         return "index";
     }
 
@@ -161,6 +163,7 @@ public class ShopController {
     public String home(ModelMap model) {
         model.addAttribute("curUser", curUser);
 
+        //need fix when good -> Object type
         List total = carService.getAllForUser(curUser.getId());
         model.addAttribute("goodsList", total);
         model.addAttribute("total", userService.getTotalCostForUsersGoods(curUser.getId()));
@@ -270,13 +273,17 @@ public class ShopController {
         return "admin/adminUser";
     }
 
-    @RequestMapping(value = "/register/admin", method = RequestMethod.POST)
+    @RequestMapping(value = {"admin/user-register","admin/user-set"}, method = RequestMethod.POST)
     public String saveRegisterFromAdmin(@Valid User user, BindingResult result, SessionStatus status, ModelMap model) {
         if (result.hasErrors()) {
             model.addAttribute("register", true);
+            model.addAttribute("mess", "не удалось сохранить данные");
+            model.addAttribute("userList", userService.getAll());
             return "admin/adminUser";
         } else {
             userService.saveOrUpdate(user);
+
+            model.addAttribute("mess", "несовпадение пароля");
             model.addAttribute("userList", userService.getAll());
             return "admin/adminUser";
         }
@@ -308,35 +315,47 @@ public class ShopController {
     }
 
     @RequestMapping(value = "/admin/car/add", method = RequestMethod.POST)
-    public String adminCarAdd(@Valid Car car, BindingResult result, SessionStatus status, ModelMap model,
-                              @RequestParam(value = "img1f", required = false) MultipartFile img1,
-                              @RequestParam(value = "img2f", required = false) MultipartFile img2,
-                              @RequestParam(value = "img3f", required = false) MultipartFile img3) {
-        String mess;
-        if (!img1.isEmpty()) {
-            try {
-                byte[] bytes = img1.getBytes();
-                BufferedOutputStream stream =
-                        new BufferedOutputStream(new FileOutputStream(new File(car.getId() + "a.jpg"))); //"/pages/img/" +
-                stream.write(bytes);
-                stream.close();
-                car.setImg1(car.getId() + "a.jpg");
-                mess = "Вы удачно загрузили фото " + img1.getName() + " в " + car.getId() + "a";
-            } catch (Exception e) {
-                mess = "Вам не удалось загрузить фото" + img1.getName() + " => " + e.getMessage();
-            }
-        } else {
-            mess = "Вам не удалось загрузить фото, возможно Вы не указали файл для загрузки";
-        }
-        /*
-
-        http://localhost:8081/pages/img/109a.jpg
-        http://localhost:8081/pages/img/0a.jpg
-        */
+    public String adminCarAdd(@Valid Car car, ModelMap model) {
 
         carService.saveOrUpdate(car);
         model.addAttribute("carList", carService.getAll());
-        model.addAttribute("message", mess);
+        model.addAttribute("mess", "авто успешно добавлен");
+
+        return "admin/adminCar";
+    }
+
+    @RequestMapping(value = "/admin/car/add/{carId}/photos", method = RequestMethod.POST)
+    public String adminCarAdd(ModelMap model,@PathVariable("carId") int id,
+                              @RequestParam(value = "img1f", required = false) MultipartFile img1,
+                              @RequestParam(value = "img2f", required = false) MultipartFile img2,
+                              @RequestParam(value = "img3f", required = false) MultipartFile img3) {
+        Car car = carService.getOne(id);
+
+        //-------------------
+        if (!img1.isEmpty()) {
+            try {
+                car.setImg1(savePhoto(img1, id, "a"));
+            } catch (Exception e) {
+                model.addAttribute("mess", "Вам не удалось загрузить фото" + img1.getName() + " => " + e.getMessage());
+            }
+        }
+        if (!img2.isEmpty()) {
+            try {
+                car.setImg2(savePhoto(img2, id, "b"));
+            } catch (Exception e) {
+                model.addAttribute("mess", "Вам не удалось загрузить фото" + img2.getName() + " => " + e.getMessage());
+            }
+        }
+        if (!img3.isEmpty()) {
+            try {
+                car.setImg3(savePhoto(img3, id, "c"));
+            } catch (Exception e) {
+                model.addAttribute("mess", "Вам не удалось загрузить фото" + img3.getName() + " => " + e.getMessage());
+            }
+        }
+    //-----------------------------
+        carService.saveOrUpdate(car);
+        model.addAttribute("carList", carService.getAll());
 
         return "admin/adminCar";
     }
@@ -373,5 +392,14 @@ public class ShopController {
         return "redirect:/";
     }
 
+    // It's write image to server and return name of the file
+    private String savePhoto(MultipartFile file, int carId, String position) throws Exception{
+        byte[] bytes = file.getBytes();
+        BufferedOutputStream stream =
+                new BufferedOutputStream(new FileOutputStream(new File(carId + position + ".jpg")));
+        stream.write(bytes);
+        stream.close();
+        return carId + position + ".jpg";
+    }
 
 }

@@ -9,7 +9,7 @@
 
 <body>
 
-<section class="main_section">
+<section class="head_block">
     <h2>Авторизация</h2>
     <p class="message_info">${mess}</p>
     <hr>

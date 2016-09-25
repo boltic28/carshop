@@ -17,8 +17,9 @@
 
     </ul>
 
-    <section class="main_section">
+    <section class="head_block">
         <h2>Работа с пользователями</h2>
+        ${mess}
         <hr>
     </section>
 
@@ -44,7 +45,7 @@
                 <td>${user.role}</td>
 
                 <td>
-                    <button class="btn btn-info btn-sm" onclick=""><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
+                    <button class="btn btn-info btn-sm" onclick="set_user('${user.id}', '${user.name}', '${user.email}', '${user.password}', '${user.role}', '${user.registered}', 'admin/user-set' )"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
                     <button class="btn btn-danger btn-sm car-del-btn a" ><a href="/admin/user/${user.id}/del"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></button>
                 </td>
             </tr>
@@ -52,12 +53,13 @@
     </table>
 <hr>
     <div class="new-user">
-        <button class="btn btn-success btn-md" onclick="add_user('register/admin')">Добавить пользователя</button>
+        <button class="btn btn-success btn-md" onclick="add_user('admin/user-register')">Добавить пользователя</button>
     </div>
 
 </body>
 
 <jsp:include page="../elements/user_add.jsp"/>
+<jsp:include page="../elements/user_set.jsp"/>
 <jsp:include page="../elements/footer.jsp"/>
 
 </html>

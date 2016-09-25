@@ -78,7 +78,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
-                ", registered='" + registered.toString() + '\'' +
+                ", registered='" + registered == null ? "no data" : registered.toString() + '\'' +
                 '}';
     }
 }

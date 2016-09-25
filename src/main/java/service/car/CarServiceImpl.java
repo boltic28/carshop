@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -75,7 +76,15 @@ public class CarServiceImpl implements CarService {
     public List<Car> getTopPosition() {
         return getAll().stream()
                 .sorted((c1, c2) -> Integer.compare(c2.getView(), c1.getView()) )
-                .limit(3)
+                .limit(4)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Car> getLastAddedPosition() {
+        return getAll().stream()
+                .sorted((c1, c2) -> Long.compare(c2.getAdded().getTime(), c1.getAdded().getTime()) )
+                .limit(4)
                 .collect(Collectors.toList());
     }
 

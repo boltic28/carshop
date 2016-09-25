@@ -9,7 +9,7 @@
 
 <body>
 
-<section class="main_section">
+<section class="head_block">
     <h2>Вход в панель администратора</h2>
     <hr>
 </section>
