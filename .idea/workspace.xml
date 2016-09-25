@@ -2,15 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="376e2693-e44a-4c41-8703-0105fc40e92e" name="Default" comment="first deploy to heroku - all OK">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/basket.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/car.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/cars.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/comparison.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/index.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/js/common.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/loginning.jsp" />
-    </list>
-    <list id="530a8989-3548-4f4d-9478-f91439bdc023" name="first deploy to heroku - all OK (cherry picked from commit 55dc834)" comment="first deploy to heroku - all OK&#10;(cherry picked from commit 55dc834)">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="carshop.iws" />
@@ -19,7 +10,6 @@
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1181,7 +1171,7 @@
       <workItem from="1474178472141" duration="620000" />
       <workItem from="1474302223957" duration="22191000" />
       <workItem from="1474700521953" duration="17511000" />
-      <workItem from="1474817093085" duration="2449000" />
+      <workItem from="1474817093085" duration="2580000" />
     </task>
     <task id="LOCAL-00001" summary="start spring">
       <created>1466687424754</created>
@@ -1302,7 +1292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1474821991531</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="first deploy to heroku - all OK&#10;(cherry picked from commit 55dc834)">
+      <created>1474822131175</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1474822131175</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1338,7 +1335,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="347042000" />
+    <option name="totallyTimeSpent" value="347173000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1006" extended-state="0" />
@@ -1431,7 +1428,8 @@
     <MESSAGE value="migration to heroku postgre is succesfull testing ok," />
     <MESSAGE value="first deploy to heroku" />
     <MESSAGE value="first deploy to heroku - all OK" />
-    <option name="LAST_COMMIT_MESSAGE" value="first deploy to heroku - all OK" />
+    <MESSAGE value="first deploy to heroku - all OK&#10;(cherry picked from commit 55dc834)" />
+    <option name="LAST_COMMIT_MESSAGE" value="first deploy to heroku - all OK&#10;(cherry picked from commit 55dc834)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
