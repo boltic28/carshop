@@ -9,13 +9,14 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h2 class="modal-title">Загрузка фото</h2>
+                <p>Вы можете загрузить только 1 или 2 изображения 1-е будет использовано как главное</p>
             </div>
             <div class="modal-body">
 
                 <form:form modelAttribute="car" enctype="multipart/form-data" accept="image/jpg" class="form-horizontal" method="post" id="carForm" action="">
 
                     <div class="form-group">
-                        <label for="img1f" class="control-label col-xs-3">Фото 1 (Главное)</label>
+                        <label for="img1f" class="control-label col-xs-3">Фото 1</label>
 
                         <div class="col-xs-9">
                             <input type="file" class="form-control" id="img1f" name="img1f">
