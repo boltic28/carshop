@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="277320487">
+  <component name="DataSourceManagerImpl" format="xml" hash="1695907884">
     <data-source source="LOCAL" name="MySQL - db_motor@localhost" uuid="9eaf4ebd-ebbf-4606-8e5c-f019cf53e83d">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
@@ -19,6 +19,16 @@
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://ec2-54-228-196-99.eu-west-1.compute.amazonaws.com:5432/d4jm8rhv7vh91s</jdbc-url>
+      <driver-properties>
+        <property name="ssl" value="true" />
+        <property name="sslfactory" value="org.postgresql.ssl.NonValidatingFactory" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="PostgreSQL - d5q6jnnvjtdlft@ec2-54-75-230-128.eu-west-1.compute.amazonaws.com" uuid="306b32e5-0e5f-4bb6-ab30-2f1b92a6094c">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ec2-54-75-230-128.eu-west-1.compute.amazonaws.com:5432/d5q6jnnvjtdlft</jdbc-url>
       <driver-properties>
         <property name="ssl" value="true" />
         <property name="sslfactory" value="org.postgresql.ssl.NonValidatingFactory" />

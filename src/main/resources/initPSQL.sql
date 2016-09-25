@@ -26,7 +26,7 @@ CREATE TABLE cars
   engine      VARCHAR NOT NULL,
   frame       VARCHAR NOT NULL,
   agregate    VARCHAR NOT NULL,
-  img1        VARCHAR NOT NULL,
+  img1        VARCHAR ,
   img2        VARCHAR ,
   img3        VARCHAR ,
   added       TIMESTAMP DEFAULT now(),
@@ -36,9 +36,9 @@ CREATE TABLE cars
   odo         INTEGER NOT NULL,
   view        INTEGER NOT NULL,
 
-  skin        INTEGER NOT NULL,
-  castdisk    INTEGER NOT NULL,
-  aircondition INTEGER NOT NULL
+  skin        BOOLEAN,
+  castdisk    BOOLEAN,
+  aircondition BOOLEAN
 
 );
 
