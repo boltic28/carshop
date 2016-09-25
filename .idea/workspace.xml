@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="376e2693-e44a-4c41-8703-0105fc40e92e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Procfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="carshop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,17 +94,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="64" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
+            <state relative-caret-position="162">
+              <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Procfile" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Procfile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -210,8 +210,8 @@
         <option value="$PROJECT_DIR$/src/main/java/web/ShopController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/car.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/elements/goods_add/carAddPhoto.jsp" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -1080,7 +1080,7 @@
       <workItem from="1474178472141" duration="620000" />
       <workItem from="1474302223957" duration="22191000" />
       <workItem from="1474700521953" duration="17511000" />
-      <workItem from="1474817093085" duration="4495000" />
+      <workItem from="1474817093085" duration="4973000" />
     </task>
     <task id="LOCAL-00001" summary="start spring">
       <created>1466687424754</created>
@@ -1236,7 +1236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1474823445734</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="first deploy to heroku 1.03">
+      <created>1474824199153</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1474824199153</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1272,7 +1279,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="349088000" />
+    <option name="totallyTimeSpent" value="349566000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1006" extended-state="0" />
@@ -1367,7 +1374,8 @@
     <MESSAGE value="first deploy to heroku - all OK&#10;(cherry picked from commit 55dc834)" />
     <MESSAGE value="first deploy to heroku - all OK" />
     <MESSAGE value="first deploy to heroku 1.02" />
-    <option name="LAST_COMMIT_MESSAGE" value="first deploy to heroku 1.02" />
+    <MESSAGE value="first deploy to heroku 1.03" />
+    <option name="LAST_COMMIT_MESSAGE" value="first deploy to heroku 1.03" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2038,18 +2046,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="64" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="90" selection-start-line="0" selection-start-column="90" selection-end-line="0" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
           <folding />
         </state>
       </provider>
