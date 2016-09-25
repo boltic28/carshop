@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="376e2693-e44a-4c41-8703-0105fc40e92e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="carshop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,7 +88,12 @@
             <state relative-caret-position="3353">
               <caret line="398" column="71" selection-start-line="398" selection-start-column="71" selection-end-line="398" selection-end-column="71" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1695#1696#0" expanded="false" />
+                <element signature="e#1729#1730#0" expanded="false" />
+                <element signature="e#15656#15657#0" expanded="false" />
+                <element signature="e#15700#15701#0" expanded="false" />
+                <element signature="e#15816#15817#0" expanded="false" />
+                <element signature="e#15851#15852#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -96,8 +102,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="12" selection-start-line="13" selection-start-column="16" selection-end-line="21" selection-end-column="25" />
+            <state relative-caret-position="153">
+              <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -1079,7 +1085,7 @@
       <workItem from="1474178472141" duration="620000" />
       <workItem from="1474302223957" duration="22191000" />
       <workItem from="1474700521953" duration="17511000" />
-      <workItem from="1474817093085" duration="5080000" />
+      <workItem from="1474817093085" duration="5275000" />
     </task>
     <task id="LOCAL-00001" summary="start spring">
       <created>1466687424754</created>
@@ -1256,7 +1262,21 @@
       <option name="project" value="LOCAL" />
       <updated>1474824777000</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="first deploy to heroku 1.05">
+      <created>1474824785630</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1474824785630</updated>
+    </task>
+    <task id="LOCAL-00027" summary="first deploy to heroku 1.05">
+      <created>1474824860257</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1474824860257</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1292,7 +1312,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="349673000" />
+    <option name="totallyTimeSpent" value="349868000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1006" extended-state="0" />
@@ -2056,7 +2076,12 @@
         <state relative-caret-position="3353">
           <caret line="398" column="71" selection-start-line="398" selection-start-column="71" selection-end-line="398" selection-end-column="71" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1695#1696#0" expanded="false" />
+            <element signature="e#1729#1730#0" expanded="false" />
+            <element signature="e#15656#15657#0" expanded="false" />
+            <element signature="e#15700#15701#0" expanded="false" />
+            <element signature="e#15816#15817#0" expanded="false" />
+            <element signature="e#15851#15852#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2071,8 +2096,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="16" selection-end-line="21" selection-end-column="25" />
+        <state relative-caret-position="153">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
           <folding />
         </state>
       </provider>
