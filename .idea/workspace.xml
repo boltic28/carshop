@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="376e2693-e44a-4c41-8703-0105fc40e92e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="carshop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1080,7 +1079,7 @@
       <workItem from="1474178472141" duration="620000" />
       <workItem from="1474302223957" duration="22191000" />
       <workItem from="1474700521953" duration="17511000" />
-      <workItem from="1474817093085" duration="5067000" />
+      <workItem from="1474817093085" duration="5080000" />
     </task>
     <task id="LOCAL-00001" summary="start spring">
       <created>1466687424754</created>
@@ -1250,7 +1249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1474824683180</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="first deploy to heroku 1.05">
+      <created>1474824777000</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1474824777000</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1286,7 +1292,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="349660000" />
+    <option name="totallyTimeSpent" value="349673000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1006" extended-state="0" />
@@ -1383,7 +1389,8 @@
     <MESSAGE value="first deploy to heroku 1.02" />
     <MESSAGE value="first deploy to heroku 1.03" />
     <MESSAGE value="first deploy to heroku 1.04" />
-    <option name="LAST_COMMIT_MESSAGE" value="first deploy to heroku 1.04" />
+    <MESSAGE value="first deploy to heroku 1.05" />
+    <option name="LAST_COMMIT_MESSAGE" value="first deploy to heroku 1.05" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
