@@ -12,7 +12,6 @@
                 <p>Вы можете загрузить только 1 или 2 изображения 1-е будет использовано как главное</p>
             </div>
             <div class="modal-body">
-
                 <form:form modelAttribute="car" enctype="multipart/form-data" accept="image/jpg" class="form-horizontal" method="post" id="carForm" action="">
 
                     <div class="form-group">
